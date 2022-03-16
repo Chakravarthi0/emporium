@@ -19,3 +19,8 @@
   background-color: var(--white);
   border: none;
 }
+@media screen and (max-width: 650px) {
+  .nav-links-container {
+      display: flex;
+  }
+}

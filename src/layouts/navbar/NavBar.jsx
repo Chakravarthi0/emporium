@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./navbar.css";
 import { Link } from "react-router-dom";
 function NavBar() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
   const toggleIsOpen = () => {
     setIsOpen((prev) => !prev);
   };
@@ -13,7 +13,7 @@ function NavBar() {
       </Link>
 
       <nav>
-        <ul className="list nav-links-container">
+        <ul className={"list nav-links-container " +  (!isOpen ? "hidden" : "")}>
           <li className="nav-search-container">
             <input
               className="input nav-search"
