@@ -1,0 +1,21 @@
+.nav-links-container {
+  gap: 3rem;
+  align-items: center;
+}
+.nav-logo {
+  font-size: 3.2rem;
+}
+
+.nav-icon {
+  font-size: 2rem;
+  color: var(--white);
+}
+.nav-icon > .badge {
+  font-size: 1.6rem;
+  background-color: var(--dark-blue);
+}
+
+.input {
+  background-color: var(--white);
+  border: none;
+}
