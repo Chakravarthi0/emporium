@@ -9,10 +9,15 @@
   box-shadow: var(--box-shadow);
 }
 
+.product-img-container{
+  width: 100%;
+}
+
 .product-img {
   border-top-right-radius: 1rem;
   border-top-left-radius: 1rem;
   height: 40rem;
+  object-fit: contain;
 }
 
 .product-title {
@@ -26,6 +31,12 @@
 
 .product-price {
   padding: 1rem 0rem;
+}
+
+.rated{
+  font-size: 3rem;
+  display: block;
+  margin: 5px 0 10px;
 }
 
 .new-price {
