@@ -1,0 +1,32 @@
+:root {
+  --dark-blue: #123f62;
+}
+
+* {
+  font-size: 1.6rem;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.btn-primary-inv {
+  background-color: var(--white);
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+}
+
+.btn-primary-inv:hover {
+  background-color: var(--primary-color);
+  color: var(--white);
+  border: 2px solid var(--white);
+}
+.btn-wide {
+  width: 90%;
+}
+
+.input {
+  background-color: var(--white);
+  border: none;
+}
