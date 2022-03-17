@@ -38,6 +38,7 @@ export const topPicks = [
     price: 16000,
     oldPrice: 20000,
     imgSrc: "/assests/products/top-picks/redmi11t.jpg",
+    rating: 4.5,
   },
   {
     _id: uuid(),
@@ -46,6 +47,7 @@ export const topPicks = [
     category: "mobile",
     price: 72000,
     imgSrc: "/assests/products/top-picks/iphone13.jpg",
+    rating: 4.3,
   },
   {
     _id: uuid(),
@@ -55,6 +57,7 @@ export const topPicks = [
     price: 12000,
     oldPrice: 14000,
     imgSrc: "/assests/products/top-picks/samsung11.webp",
+    rating: 4.7,
   },
   {
     _id: uuid(),
@@ -64,6 +67,7 @@ export const topPicks = [
     price: 31000,
     oldPrice: 33000,
     imgSrc: "/assests/products/top-picks/apple_ipad.png",
+    rating: 4.1,
   },
   {
     _id: uuid(),
@@ -72,6 +76,7 @@ export const topPicks = [
     category: "tablet",
     price: 31000,
     imgSrc: "/assests/products/top-picks/dell_2.jpg",
+    rating: 4.5,
   },
   {
     _id: uuid(),
@@ -81,5 +86,6 @@ export const topPicks = [
     price: 31000,
     oldPrice: 33000,
     imgSrc: "/assests/products/top-picks/asus_tuf.jpg",
+    rating: 4.1,
   },
 ];

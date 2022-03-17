@@ -11,6 +11,11 @@
   flex-direction: column;
   min-height: 100vh;
 }
+.page-title {
+  font-size: 4rem;
+  font-weight: initial;
+  margin: 2rem 0;
+}
 .btn-primary-inv {
   background-color: var(--white);
   color: var(--primary-color);

@@ -40,6 +40,7 @@ function HomePage() {
                 key={ele._id}
                 title={ele.title}
                 brand={ele.brand}
+                rating={ele.rating}
                 oldPrice={ele.oldPrice}
                 newPrice={ele.price}
                 imgSrc={ele.imgSrc}

@@ -13,7 +13,6 @@ function NavBar() {
   }, [])
   const [isOpen, setIsOpen] = useState(false);
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
-  console.log(screenWidth)
   const toggleIsOpen = () => {
     setIsOpen((prev) => !prev);
   };
