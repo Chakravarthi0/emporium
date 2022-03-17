@@ -1,8 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./navbar.css";
 import { Link } from "react-router-dom";
 function NavBar() {
-  const [isOpen, setIsOpen] = useState(true);
+  useEffect(() => {
+
+    const changeWidth = () => {
+      setScreenWidth(window.innerWidth);
+    }
+
+    window.addEventListener('resize', changeWidth)
+
+  }, [])
+  const [isOpen, setIsOpen] = useState(false);
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+  console.log(screenWidth)
   const toggleIsOpen = () => {
     setIsOpen((prev) => !prev);
   };
@@ -13,7 +24,7 @@ function NavBar() {
       </Link>
 
       <nav>
-        <ul className={"list nav-links-container " +  (!isOpen ? "hidden" : "")}>
+        {(isOpen || screenWidth > 800) &&(<ul className={"list nav-links-container"}>
           <li className="nav-search-container">
             <input
               className="input nav-search"
@@ -42,9 +53,9 @@ function NavBar() {
               </i>
             </Link>
           </li>
-        </ul>
+        </ul>)}
         <i
-          className={"material-icons hamburger-icon " + (isOpen ? "open" : "")}
+          className={"material-icons hamburger-icon"}
           onClick={toggleIsOpen}
         >
           {isOpen ? "close" : "menu"}

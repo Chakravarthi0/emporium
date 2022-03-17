@@ -19,8 +19,16 @@
   background-color: var(--white);
   border: none;
 }
-@media screen and (max-width: 650px) {
+@media screen and (max-width: 800px) {
   .nav-links-container {
-      display: flex;
+    display: flex;
+    flex-direction: column;
+  }
+  .navbar-container {
+    flex-direction: column;
+  }
+  .hamburger-icon {
+    display: block;
+    top: 2.8rem;
   }
 }
