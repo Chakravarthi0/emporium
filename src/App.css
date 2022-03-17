@@ -12,7 +12,7 @@
   min-height: 100vh;
 }
 .page-title {
-  font-size: 4rem;
+  font-size: 3.5rem;
   font-weight: initial;
   margin: 2rem 0;
 }
@@ -34,4 +34,9 @@
 .input {
   background-color: var(--white);
   border: none;
+}
+@media screen and (max-width: 800px) {
+  .page-title {
+    font-size: 3rem;
+  }
 }
