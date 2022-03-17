@@ -10,22 +10,22 @@ function PriceDetails() {
       <ul className="price-list">
         <li className="price-details-list">
           <p>Price(2 items)</p>
-          <p>4999</p>
+          <p>₹{Intl.NumberFormat('en-IN').format(499999)}</p>
         </li>
 
         <li className="price-details-list">
           <p>Discount</p>
-          <p>4999</p>
+          <p>₹{Intl.NumberFormat('en-IN').format(499999)}</p>
         </li>
 
         <li className="price-details-list">
           <p>Delivery charges</p>
-          <p>4999</p>
+          <p>₹{Intl.NumberFormat('en-IN').format(499999)}</p>
         </li>
         <hr />
         <li className="price-details-list">
           <p>Total price</p>
-          <p>4999</p>
+          <p>₹{Intl.NumberFormat('en-IN').format(499999)}</p>
         </li>
         <hr />
       </ul>

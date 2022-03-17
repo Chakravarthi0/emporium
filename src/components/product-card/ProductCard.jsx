@@ -17,12 +17,12 @@ function ProductCard({ imgSrc, title, brand, oldPrice, newPrice, rating }) {
       <div className="rated" style={{"--stars": rating}}>
 
       </div>
-        <span className="new-price">₹{newPrice}</span>
+        <span className="new-price">₹{Intl.NumberFormat('en-IN').format(newPrice)}</span>
         {oldPrice && (
           
           <span>
             <span>&nbsp;&nbsp;</span>
-            <strike className="old-price">₹{oldPrice}</strike>
+            <strike className="old-price">₹{Intl.NumberFormat('en-IN').format(oldPrice)}</strike>
           </span>
         )}
       </div>

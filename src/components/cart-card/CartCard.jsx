@@ -26,11 +26,11 @@ function CartCard({ title, brand, imgSrc, newPrice, oldPrice, quantity }) {
         <p className="product-title">{title}</p>
         <p className="product-brand">{brand}</p>
         <div className="product-price">
-          <span className="new-price">₹{newPrice}</span>
+          <span className="new-price">₹{Intl.NumberFormat('en-IN').format(newPrice)}</span>
           {oldPrice && (
             <span>
               <span>&nbsp;&nbsp;</span>
-              <strike className="old-price">₹{oldPrice}</strike>
+              <strike className="old-price">₹{Intl.NumberFormat('en-IN').format(oldPrice)}</strike>
             </span>
           )}
         </div>
