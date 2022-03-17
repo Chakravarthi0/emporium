@@ -1,7 +1,9 @@
 import React from "react";
-
+import {SigninCard} from "../../components/index"
 function SignIn() {
-  return <div>SignIn Page</div>;
+  return <div>
+    <SigninCard/>
+  </div>;
 }
 
 export default SignIn;

@@ -1,0 +1,24 @@
+.price-details {
+  width: 100%;
+  max-width: 60rem;
+  height: 40rem;
+  background-color: var(--white-pure);
+  border-radius: 1rem;
+  padding: 5rem 3rem 3rem;
+  text-align: center;
+}
+
+.price-details-list {
+  display: flex;
+  justify-content: space-between;
+}
+
+.price-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.savings {
+  margin: 3rem 0rem;
+}

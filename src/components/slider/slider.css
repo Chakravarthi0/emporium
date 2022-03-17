@@ -1,0 +1,26 @@
+/* over-riding slider component properties */
+
+.slider-container {
+  display: block;
+  padding: 0rem;
+  width: 12rem;
+  box-shadow: none;
+}
+
+.slider {
+  width: 17rem;
+}
+
+.slider-input {
+  width: 17.3rem;
+}
+
+.progress-bar {
+  width: 17rem;
+}
+
+.slider-value {
+  width: 1.4rem;
+  margin-left: 1rem;
+  margin-right: 2.6rem;
+}

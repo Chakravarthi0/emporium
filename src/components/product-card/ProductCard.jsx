@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./product-card.css";
 
-function ProductCard({ imgSrc, title, brand, oldPrice, newPrice }) {
+function ProductCard({ imgSrc, title, brand, oldPrice, newPrice, rating }) {
   const [isWishlisted, setISWishlisted] = useState(false);
   const handleWishlist = () => {
     setISWishlisted((p) => !p);
@@ -14,10 +14,15 @@ function ProductCard({ imgSrc, title, brand, oldPrice, newPrice }) {
       <p className="product-title">{title}</p>
       <p className="product-brand">{brand}</p>
       <div className="product-price">
-        <span className="new-price">₹{newPrice}</span>
+      <div className="rated" style={{"--stars": rating}}>
+
+      </div>
+        <span className="new-price">₹{Intl.NumberFormat('en-IN').format(newPrice)}</span>
         {oldPrice && (
+          
           <span>
-            <strike className="old-price">₹{oldPrice}</strike>
+            <span>&nbsp;&nbsp;</span>
+            <strike className="old-price">₹{Intl.NumberFormat('en-IN').format(oldPrice)}</strike>
           </span>
         )}
       </div>
