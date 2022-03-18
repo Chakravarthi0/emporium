@@ -1,8 +1,10 @@
 import React from 'react'
 import { Slider } from '../../components';
+import {useCategories} from "../../context/index"
 import "./product-listing.css"
 
 function Filter() {
+  const {categories} = useCategories();
   return (
     <div  className="filters-container bg-white-pure">
         <div className="filters-heading">
@@ -21,13 +23,13 @@ function Filter() {
         <div className="category-filter">
           <h4 className="filter-heading">Category</h4>
           <div className="categorie-filter-options">
-            <label className='filter-label'> <input type="checkbox" name="category" /> category-1 </label>
-
-            <label className='filter-label'> <input type="checkbox" name="category" /> category-2 </label>
-
-            <label className='filter-label'> <input type="checkbox" name="category" /> category-3 </label>
-
-            <label className='filter-label'> <input type="checkbox" name="category" /> category-4 </label>
+            {
+              categories.map(ele => {
+                return (
+                  <label key={ele._id} className='filter-label'> <input type="checkbox" name={ele.categoryName} /> {ele.categoryName} </label>
+                )
+              })
+            }
           </div>
         </div>
 

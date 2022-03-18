@@ -1,11 +1,24 @@
 import React from "react";
 import "./home.css";
 import "../../../public/assests/hero-section/Shopping_Outline.svg";
-import { ProductCard } from "../../components";
-import { topPicks } from "../../backend/db/products";
+import { ProductCard, CategoryCard,Loader, LoadingError } from "../../components";
 import { Link } from "react-router-dom";
+import { useProducts, useCategories } from "../../context";
 
 function HomePage() {
+  const {
+    products,
+    isLoading: isProductLoading,
+    error: productError,
+  } = useProducts();
+
+  const {
+    categories,
+    isLoading: isCategoriesLoading,
+    error: categoryError,
+  } = useCategories();
+
+  const topPickProducts = products.filter((ele) => ele.isTopPick);
   return (
     <div>
       {/* Hero section */}
@@ -28,13 +41,56 @@ function HomePage() {
         </div>
       </div>
 
+      {/* categories */}
+
+      {isCategoriesLoading && (
+        <div>
+          <h1 className="text-center page-title">Categories</h1>
+          <Loader />
+        </div>
+      )}
+
+        {
+          categoryError && (
+            <div>
+          <h1 className="text-center page-title">Categories</h1>
+          <LoadingError/>
+          </div>)
+        }
+
+      {categories.length > 0 && (
+        <div className="categories-container">
+          <h1 className="text-center page-title">Categories</h1>
+          <div className="categories">
+            {categories.map((ele) => {
+              return (
+                <CategoryCard
+                  key={ele._id}
+                  title={ele.categoryName}
+                  imgSrc={ele.imgSrc}
+                  linkTO={ele.link}
+                />
+              );
+            })}
+          </div>
+        </div>
+      )}
+
       {/* <!-- Top picks --> */}
 
       <div className="top-picks-container">
-        <h1 className="text-center">Top picks for you</h1>
+        <h1 className="text-center page-title">Top picks for you</h1>
 
-        <div className="top-picks">
-          {topPicks.map((ele) => {
+        {
+          isProductLoading && (<Loader/>)
+        }
+
+        {
+          productError && (<LoadingError/>)
+        }
+
+        {(topPickProducts.length > 0) && (<div className="top-picks">
+          {topPickProducts.map((ele) => {
             return (
               <ProductCard
                 key={ele._id}
@@ -47,7 +103,7 @@ function HomePage() {
               />
             );
           })}
-        </div>
+        </div>)}
       </div>
     </div>
   );
