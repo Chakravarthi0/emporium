@@ -1,0 +1,17 @@
+.loading-error-msg-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: auto;
+  text-align: center;
+}
+.loading-error-msg {
+  font-size: 4rem;
+  font-weight: normal;
+}
+
+@media screen and (max-width: 800px) {
+  .loading-error-msg {
+    font-size: 3.2rem;
+  }
+}

@@ -1,0 +1,35 @@
+.loader-container {
+  height: 30vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loader {
+  border: 5px solid var(--white-pure);
+  border-top: 5px solid var(--primary-color);
+  border-radius: 50%;
+  width: 5rem;
+  height: 5rem;
+  animation: spin 1.25s linear infinite;
+}
+
+.loader-full-screen {
+  height: 80vh;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .loader {
+    width: 4rem;
+    height: 4rem;
+  }
+}

@@ -37,6 +37,9 @@
 }
 
 /* products */
+.product-page-max-width{
+  width: 80%;
+}
 .products-container {
   width: 100%;
   display: grid;

@@ -34,19 +34,35 @@
   margin-top: 2rem;
 }
 
+/* categories */
+
+.categories-container {
+  margin-top: 5rem;
+  background-color: var(--primary-color);
+  padding: 2rem 0rem 10rem;
+}
+
+.categories {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  align-items: center;
+  justify-items: center;
+}
+
+.categories-container > .page-title,
+.top-picks-container > .page-title {
+  margin: 5rem 0;
+}
+
 /* top picks */
 
 .top-picks-container {
   margin: 10rem 0rem;
 }
 
-.top-picks-container > h1 {
-  margin: 5rem;
-}
-
 .top-picks {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   align-items: center;
   justify-items: center;
   gap: 4rem;

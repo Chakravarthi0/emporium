@@ -4,14 +4,19 @@ import "./index.css";
 import App from "./App";
 import { makeServer } from "./server";
 import { BrowserRouter as Router } from "react-router-dom";
-
+import { ProductsProvider, CategoriesProvider } from "./context/index";
 // Call make Server
 makeServer();
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
-      <App />
+      <ProductsProvider>
+        <CategoriesProvider>
+
+        <App />
+        </CategoriesProvider>
+      </ProductsProvider>
     </Router>
   </React.StrictMode>,
   document.getElementById("root")
