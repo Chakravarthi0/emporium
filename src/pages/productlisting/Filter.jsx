@@ -67,7 +67,7 @@ function Filter({displayFilters, toggleDisplayFilters}) {
               onChange={() =>
                 filterDispatch({ type: actionTypes.CHANGE_RATING, payload: 4 })
               }
-            />{" "}
+            />
             4 stars & above
           </label>
           <label className="filter-label">
@@ -78,7 +78,7 @@ function Filter({displayFilters, toggleDisplayFilters}) {
               onChange={() =>
                 filterDispatch({ type: actionTypes.CHANGE_RATING, payload: 3 })
               }
-            />{" "}
+            />
             3 stars & above
           </label>
           <label className="filter-label">
@@ -89,7 +89,7 @@ function Filter({displayFilters, toggleDisplayFilters}) {
               onChange={() =>
                 filterDispatch({ type: actionTypes.CHANGE_RATING, payload: 2 })
               }
-            />{" "}
+            />
             2 stars & above
           </label>
           <label className="filter-label">
@@ -100,7 +100,7 @@ function Filter({displayFilters, toggleDisplayFilters}) {
               onChange={() =>
                 filterDispatch({ type: actionTypes.CHANGE_RATING, payload: 1 })
               }
-            />{" "}
+            />
             1 stars & above
           </label>
         </div>
@@ -118,7 +118,7 @@ function Filter({displayFilters, toggleDisplayFilters}) {
                 filterDispatch({ type: actionTypes.SORT_ASCENDING })
               }
               name="sort"
-            />{" "}
+            />
             Price - Low to High
           </label>
           <label className="filter-label">
@@ -129,7 +129,7 @@ function Filter({displayFilters, toggleDisplayFilters}) {
                 filterDispatch({ type: actionTypes.SORT_DESCENDING })
               }
               name="sort"
-            />{" "}
+            />
             Price - High to Low
           </label>
         </div>
