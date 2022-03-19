@@ -1,13 +1,16 @@
 import React, { useState } from "react";
 import "./product-card.css";
 
-function ProductCard({ imgSrc, title, brand, oldPrice, newPrice, rating }) {
+function ProductCard({ imgSrc, title, brand, oldPrice, newPrice, rating, inStock }) {
   const [isWishlisted, setISWishlisted] = useState(false);
   const handleWishlist = () => {
     setISWishlisted((p) => !p);
   };
   return (
     <div className="card product-card">
+      {!inStock && <div className="overlay-container">
+        <p className="tag availability-tag bg-danger white-pure">Out of stock</p>
+        </div>}
       <div className="product-img-container">
         <img className="product-img img-responsive" src={`../../${imgSrc}`} />
       </div>
@@ -31,7 +34,7 @@ function ProductCard({ imgSrc, title, brand, oldPrice, newPrice, rating }) {
       </div>
       <i
         className={
-          "material-icons wishlist-icon " + (isWishlisted ? "danger" : "")
+          "material-icons wishlist-icon " + (isWishlisted ? "danger" : "") + (!inStock ? " wishlist-overlay" : "")
         }
         onClick={handleWishlist}
       >
