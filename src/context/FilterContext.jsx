@@ -12,7 +12,7 @@ function FilterProvider({children}) {
       categories:[],
       rating: 1,
       includeOutOfStock: false,
-      minPrice:0
+      maxPrice:50000,
     })
 
 

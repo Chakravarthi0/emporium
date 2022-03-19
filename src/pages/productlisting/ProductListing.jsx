@@ -27,7 +27,7 @@ function ProductListing() {
       filteredProducts = filteredProducts.filter(ele => ele.inStock)
     }
     filteredProducts = filteredProducts
-    .filter((ele) => ele.price >= filterState.minPrice)
+    .filter((ele) => ele.price <= filterState.maxPrice)
     .filter(ele => ele.rating >= filterState.rating)
     if(filterState.categories.length > 0){
 

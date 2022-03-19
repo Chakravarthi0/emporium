@@ -6,12 +6,12 @@ import "./slider.css"
 const Slider = ({ min, max }) => {
   const {filterState, filterDispatch} = useFilter();
 
-    let sliderValue = filterState.minPrice;
-    let progressBar = filterState.minPrice;
+    let sliderValue = filterState.maxPrice;
+    let progressBar = filterState.maxPrice;
 
     useEffect(() => {
-      sliderValue = filterState.minPrice;
-     progressBar = filterState.minPrice;
+      sliderValue = filterState.maxPrice;
+     progressBar = filterState.maxPrice;
     },[filterState.minPrice])
 
     return (
@@ -28,6 +28,7 @@ const Slider = ({ min, max }) => {
             value={sliderValue}
             min={min}
             max={max}
+            step={5000}
             onChange={(e) => {
               filterDispatch({type: actionTypes.CHANGE_PRICE_RANGE ,payload:Number(e.target.value)});
             }}
