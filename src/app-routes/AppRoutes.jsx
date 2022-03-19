@@ -1,4 +1,5 @@
 import React from "react";
+import Mockman from "mockman-js";
 import {
   HomePage,
   Cart,
@@ -20,6 +21,7 @@ function AppRoutes() {
       <Route path="/signup" element={<SignUP />}></Route>
       <Route path="/signout" element={<SignOut />}></Route>
       <Route path="/signin" element={<SignIn />}></Route>
+      <Route path="/mockman" element={<Mockman />} />
     </Routes>
   );
 }
