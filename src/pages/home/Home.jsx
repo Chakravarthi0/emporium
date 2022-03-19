@@ -66,7 +66,7 @@ function HomePage() {
               return (
                 <CategoryCard
                   key={ele._id}
-                  title={ele.categoryName}
+                  title={ele.title}
                   imgSrc={ele.imgSrc}
                   linkTO={ele.link}
                 />
@@ -100,6 +100,7 @@ function HomePage() {
                 oldPrice={ele.oldPrice}
                 newPrice={ele.price}
                 imgSrc={ele.imgSrc}
+                inStock = {ele.inStock}
               />
             );
           })}

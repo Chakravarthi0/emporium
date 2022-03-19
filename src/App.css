@@ -1,5 +1,7 @@
 :root {
   --dark-blue: #123f62;
+  --out-of-stock-bg: rgb(0 0 0 / 57%);
+  --transaprent: rgb(0 0 0 / 0%);
 }
 
 * {

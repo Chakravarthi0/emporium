@@ -1,9 +1,19 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react';
+import {actionTypes} from "../../reducers/index";
+import {useFilter} from "../../context/index"
 import "./slider.css"
 
-const Slider = ({ min, max, changeVal }) => {
-    const [sliderValue, setSliderValue] = useState(min);
-    const [progressBar, setProgressBar] = useState(min);
+const Slider = ({ min, max }) => {
+  const {filterState, filterDispatch} = useFilter();
+
+    let sliderValue = filterState.maxPrice;
+    let progressBar = filterState.maxPrice;
+
+    useEffect(() => {
+      sliderValue = filterState.maxPrice;
+     progressBar = filterState.maxPrice;
+    },[filterState.minPrice])
+
     return (
       <div className="price-filter">
       <div className="price-filter-head">
@@ -18,10 +28,9 @@ const Slider = ({ min, max, changeVal }) => {
             value={sliderValue}
             min={min}
             max={max}
+            step={5000}
             onChange={(e) => {
-              setSliderValue(Number(e.target.value));
-              setProgressBar(Number(e.target.value));
-              changeVal(Number(e.target.value));
+              filterDispatch({type: actionTypes.CHANGE_PRICE_RANGE ,payload:Number(e.target.value)});
             }}
           />
           <progress
