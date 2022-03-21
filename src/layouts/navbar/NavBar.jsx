@@ -8,8 +8,6 @@ function NavBar() {
     authState: { token },
   } = useAuth();
 
-  console.log(token)
-  console.log(token === "")
   useEffect(() => {
     const changeWidth = () => {
       setScreenWidth(window.innerWidth);
@@ -39,7 +37,7 @@ function NavBar() {
               />
             </li>
 
-            {token==="" ? (
+            {token === "" ? (
               <li>
                 <Link className="link btn btn-primary-inv" to={"/signin"}>
                   Sign In
