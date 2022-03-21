@@ -48,3 +48,14 @@
 .sign-x-btn {
   width: 100%;
 }
+
+.sign-x-label {
+  cursor: pointer;
+}
+
+.t-and-c-container{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-left: -1rem;
+}

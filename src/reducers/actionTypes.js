@@ -7,6 +7,8 @@ const actionTypes = {
   CLEAR_FILTERS: "CLEAR_FILTERS",
   CHANGE_RATING: "CHANGE_RATING",
   CLEAR_CATEGORIES: "CLEAR_CATEGORIES",
+  SIGN_IN: "SIGN_IN",
+  SIGN_OUT: "SIGN_OUT",
 };
 
 export { actionTypes };

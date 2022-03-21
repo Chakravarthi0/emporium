@@ -5,6 +5,7 @@ import App from "./App";
 import { makeServer } from "./server";
 import { BrowserRouter as Router } from "react-router-dom";
 import {
+  AuthProvider,
   ProductsProvider,
   CategoriesProvider,
   FilterProvider,
@@ -15,13 +16,15 @@ makeServer();
 ReactDOM.render(
   <React.StrictMode>
     <Router>
-      <ProductsProvider>
-        <CategoriesProvider>
-          <FilterProvider>
-            <App />
-          </FilterProvider>
-        </CategoriesProvider>
-      </ProductsProvider>
+      <AuthProvider>
+        <ProductsProvider>
+          <CategoriesProvider>
+            <FilterProvider>
+              <App />
+            </FilterProvider>
+          </CategoriesProvider>
+        </ProductsProvider>
+      </AuthProvider>
     </Router>
   </React.StrictMode>,
   document.getElementById("root")
