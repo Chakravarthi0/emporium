@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./signin-card.css";
 import { Link } from "react-router-dom";
+import PasswordInput from "../password-input/PasswordInput"
 import { useAuth } from "../../context/index";
 
 function SigninCard() {
@@ -73,13 +74,7 @@ function SigninCard() {
         </div>
         <div className="input-container">
           <label>Password</label>
-          <input
-            name="password"
-            className="input"
-            type="password"
-            value={password}
-            onChange={handleInputChange}
-          />
+          <PasswordInput name={"password"} inputValue={password} handleInputChange={handleInputChange} />
           <p className="validation-msg danger">{formErrors.password}</p>
         </div>
         <div>
