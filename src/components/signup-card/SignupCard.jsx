@@ -50,7 +50,8 @@ function SignupCard() {
 
   const validateInput = (inputs) => {
     const errors = {};
-    const passwordRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
+    const passwordRegex = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
     if (!inputs.firstName) {
       errors.firstName = "Firstname is required";
     }
@@ -59,15 +60,13 @@ function SignupCard() {
     }
     if (!inputs.userEmail) {
       errors.userEmail = "Email is required";
-    } else if (!passwordRegex.test(inputs.userEmail)) {
+    } else if (!emailRegex.test(inputs.userEmail)) {
       errors.userEmail = "This is not a valid email format";
     }
     if (!inputs.password) {
       errors.password = "Password is required";
-    } else if (inputs.password.length < 4) {
-      errors.password = "Password must be more than 4 characters";
-    } else if (inputs.password.length > 10) {
-      errors.password = "Password cannot exceed more than 10 characters";
+    }else if (!passwordRegex.test(inputs.password)) {
+      errors.password = "Password should contain atleast 1 number, 1 lower case, 1 uppercase and 1 special character";
     }
     if (inputs.confirmPassword !== inputs.password) {
       errors.confirmPassword = "Passwords don't match";
