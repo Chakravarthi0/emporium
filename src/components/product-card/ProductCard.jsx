@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { useCart, useAuth } from "../../context/index";
+import React, { useState, useEffect } from "react";
+import { useCart, useAuth, useWishlist } from "../../context/index";
 import { useNavigate } from "react-router-dom";
 import "./product-card.css";
 
@@ -15,14 +15,16 @@ function ProductCard({ product }) {
     inStock,
     _id,
   } = product;
-  const { addToCart, cartItems, isLoading } = useCart();
+  const { cartItems, addToCart } = useCart();
+  const { wishlistItems, addToWishlist, removeFromWishlist } = useWishlist();
+  const isInWishlist = wishlistItems.find((item) => item._id === _id);
   const {
     authState: { token },
   } = useAuth();
-  const [isWishlisted, setISWishlisted] = useState(false);
-  const handleWishlist = () => {
-    setISWishlisted((p) => !p);
-  };
+  const [isLoading, setIsLoading] = useState({
+    cart: false,
+    wishlist: false,
+  });
   return (
     <div className="card product-card">
       {!inStock && (
@@ -62,11 +64,15 @@ function ProductCard({ product }) {
             </button>
           ) : (
             <button
-              disabled={isLoading}
+              disabled={isLoading.cart}
               className="btn btn-primary btn-wide"
-              onClick={() => addToCart(product)}
+              onClick={() => addToCart(product, setIsLoading)}
             >
-              Add to cart
+              {isLoading.cart ? (
+                <img className="loader-img" src="/assests/spinner.svg"></img>
+              ) : (
+                "Add to cart"
+              )}
             </button>
           )
         ) : (
@@ -78,16 +84,23 @@ function ProductCard({ product }) {
           </button>
         )}
       </div>
-      <i
+      <button
+        disabled={isLoading.wishlist}
         className={
           "material-icons wishlist-icon " +
-          (isWishlisted ? "danger" : "") +
+          (isInWishlist ? "danger" : "") +
           (!inStock ? " wishlist-overlay" : "")
         }
-        onClick={handleWishlist}
+        onClick={
+          token
+            ? isInWishlist
+              ? () => removeFromWishlist(_id)
+              : () => addToWishlist(product, setIsLoading)
+            : () => navigate("/signin")
+        }
       >
-        {isWishlisted ? "favorite" : "favorite_border"}
-      </i>
+        {isInWishlist ? "favorite" : "favorite_border"}
+      </button>
     </div>
   );
 }
