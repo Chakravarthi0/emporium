@@ -1,22 +1,20 @@
-import React, { useState } from "react";
+import React from "react";
+import { useCart } from "../../context/CartContext";
 import "./cart-card.css";
 
-function CartCard({ title, brand, imgSrc, newPrice, oldPrice, quantity }) {
-  const [chosenQuantity, setChosenQuantity] = useState(quantity || 1);
+function CartCard({ product }) {
+  const {
+    title,
+    brand,
+    imgSrc,
+    price: newPrice,
+    oldPrice,
+    qty: quantity,
+    _id,
+  } = product;
 
-  const increaseQuantity = () => {
-    setChosenQuantity((prev) => prev + 1);
-  };
+  let { changeQuantity, isLoading, removeFromCart } = useCart();
 
-  const decreaseQuantity = () => {
-    setChosenQuantity((prev) => {
-      if (prev > 1) {
-        return prev - 1;
-      } else {
-        return prev;
-      }
-    });
-  };
   return (
     <div className="cart-product-card">
       <div className="cart-product-img">
@@ -26,41 +24,46 @@ function CartCard({ title, brand, imgSrc, newPrice, oldPrice, quantity }) {
         <p className="product-title">{title}</p>
         <p className="product-brand">{brand}</p>
         <div className="product-price">
-          <span className="new-price">₹{Intl.NumberFormat('en-IN').format(newPrice)}</span>
+          <span className="new-price">
+            ₹{Intl.NumberFormat("en-IN").format(newPrice)}
+          </span>
           {oldPrice && (
             <span>
               <span>&nbsp;&nbsp;</span>
-              <strike className="old-price">₹{Intl.NumberFormat('en-IN').format(oldPrice)}</strike>
+              <strike className="old-price">
+                ₹{Intl.NumberFormat("en-IN").format(oldPrice)}
+              </strike>
             </span>
           )}
         </div>
         <div className="quantity">
           quantity:
           <button
-            disabled={chosenQuantity < 2}
+            disabled={isLoading || quantity < 2}
             className={
-              "quantity-dec .bg-primary " +
-              (chosenQuantity < 2 ? "no-cursor" : "")
+              "quantity-dec .bg-primary " + (quantity < 2 ? "no-cursor" : "")
             }
-            onClick={decreaseQuantity}
+            onClick={() => changeQuantity(_id, "decrement")}
           >
             −
           </button>
-          <input
-            className="cart-quantity-inp"
-            type="number"
-            value={chosenQuantity}
-            onChange={(e) => {
-              console.log(e.target.value);
-              setChosenQuantity(e.target.value);
-            }}
-          />
-          <button className="quantity-inc" onClick={increaseQuantity}>
+          {quantity}
+          <button
+            disabled={isLoading}
+            className="quantity-inc"
+            onClick={() => changeQuantity(_id, "increment")}
+          >
             +
           </button>
         </div>
         <button className="btn btn-primary btn-wide">Move to wishlist</button>
-        <button className="btn btn-danger btn-wide">Remove from cart</button>
+        <button
+          disabled={isLoading}
+          className="btn btn-danger btn-wide"
+          onClick={() => removeFromCart(_id)}
+        >
+          Remove from cart
+        </button>
       </div>
     </div>
   );
