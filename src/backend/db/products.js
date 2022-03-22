@@ -103,7 +103,7 @@ import { v4 as uuid } from "uuid";
     brand: "Xiamo",
     category: "smartWatch",
     price: 4000,
-    oldPrice: 2500,
+    oldPrice: 6500,
     imgSrc: "/assests/products/top-picks/redmi_band_5.webp",
     rating: 4.5,
     inStock: true,

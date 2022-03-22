@@ -1,7 +1,12 @@
 import React from "react";
 import "./home.css";
 import "../../../public/assests/hero-section/Shopping_Outline.svg";
-import { ProductCard, CategoryCard,Loader, LoadingError } from "../../components";
+import {
+  ProductCard,
+  CategoryCard,
+  Loader,
+  LoadingError,
+} from "../../components";
 import { Link } from "react-router-dom";
 import { useProducts, useCategories } from "../../context";
 
@@ -50,13 +55,12 @@ function HomePage() {
         </div>
       )}
 
-        {
-          categoryError && (
-            <div>
+      {categoryError && (
+        <div>
           <h1 className="text-center page-title">Categories</h1>
-          <LoadingError/>
-          </div>)
-        }
+          <LoadingError />
+        </div>
+      )}
 
       {categories.length > 0 && (
         <div className="categories-container">
@@ -81,30 +85,17 @@ function HomePage() {
       <div className="top-picks-container">
         <h1 className="text-center page-title">Top picks for you</h1>
 
-        {
-          isProductLoading && (<Loader/>)
-        }
+        {isProductLoading && <Loader />}
 
-        {
-          productError && (<LoadingError/>)
-        }
+        {productError && <LoadingError />}
 
-        {(topPickProducts.length > 0) && (<div className="top-picks">
-          {topPickProducts.map((ele) => {
-            return (
-              <ProductCard
-                key={ele._id}
-                title={ele.title}
-                brand={ele.brand}
-                rating={ele.rating}
-                oldPrice={ele.oldPrice}
-                newPrice={ele.price}
-                imgSrc={ele.imgSrc}
-                inStock = {ele.inStock}
-              />
-            );
-          })}
-        </div>)}
+        {topPickProducts.length > 0 && (
+          <div className="top-picks">
+            {topPickProducts.map((product) => {
+              return <ProductCard key={product._id} product={product} />;
+            })}
+          </div>
+        )}
       </div>
     </div>
   );

@@ -1,32 +1,23 @@
-import React from 'react'
-import { topPicks } from "../../backend/db/products";
+import React from "react";
 import { CartCard, PriceDetails } from "../../components";
-import "./cart.css"
+import { useCart } from "../../context/index";
+import "./cart.css";
 
 function Cart() {
+  const { cartItems } = useCart();
   return (
     <>
-      <h1 className="text-center page-title">My Cart</h1>
+      <h1 className="text-center page-title">My Cart ({cartItems.length})</h1>
       <div className="cart-container">
-      <div className="cart-products">
-      {topPicks.map((ele) => {
-        return (
-          <CartCard
-            key={ele._id}
-            title={ele.title}
-            brand={ele.brand}
-            rating={ele.rating}
-            oldPrice={ele.oldPrice}
-            newPrice={ele.price}
-            imgSrc={ele.imgSrc}
-          />
-        );
-      })}
+        <div className="cart-products">
+          {cartItems.map((product) => {
+            return <CartCard key={product._id} product={product} />;
+          })}
+        </div>
+        <PriceDetails />
       </div>
-      <PriceDetails/>
-    </div>
     </>
-  )
+  );
 }
 
-export default Cart
+export default Cart;

@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { useAuth } from "../../context/index";
+import { useAuth, useCart } from "../../context/index";
 import "./navbar.css";
 function NavBar() {
   const {
     signOut,
     authState: { token },
   } = useAuth();
+
+  const { cartItems, no } = useCart();
 
   useEffect(() => {
     const changeWidth = () => {
@@ -62,7 +64,9 @@ function NavBar() {
             <li>
               <Link className="nav-icon-container black" to={"/cart"}>
                 <i className="fas fa-shopping-cart badge-container nav-icon">
-                  <span className="badge badge-lg">96</span>
+                  {cartItems.length > 0 && (
+                    <span className="badge badge-lg">{cartItems.length}</span>
+                  )}
                 </i>
               </Link>
             </li>
