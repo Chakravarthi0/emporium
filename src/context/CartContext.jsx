@@ -8,31 +8,32 @@ const useCart = () => useContext(cartContext);
 
 function CartProvider({ children }) {
   const [cartItems, setCartItems] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
   const {
     authState: { token },
   } = useAuth();
 
   useEffect(() => {
     (async () => {
-      try {
-        const response = await axios.get("/api/user/cart", {
-          headers: {
-            authorization: token,
-          },
-        });
-        if (response.status === 200) {
-          setCartItems(response.data.cart);
+      if (token) {
+        try {
+          const response = await axios.get("/api/user/cart", {
+            headers: {
+              authorization: token,
+            },
+          });
+          if (response.status === 200) {
+            setCartItems(response.data.cart);
+          }
+        } catch (err) {
+          console.log(err);
         }
-      } catch (err) {
-        console.log(err);
       }
     })();
   }, [token]);
 
-  const addToCart = async (product) => {
+  const addToCart = async (product, setIsLoading) => {
     try {
-      setIsLoading(true);
+      setIsLoading((prev) => ({ ...prev, cart: true }));
       const response = await axios.post(
         "/api/user/cart",
         {
@@ -47,17 +48,17 @@ function CartProvider({ children }) {
 
       if (response.status === 201) {
         setCartItems(response.data.cart);
-        setIsLoading(false);
+        setIsLoading((prev) => ({ ...prev, cart: false }));
       }
     } catch (err) {
-      setIsLoading(false);
+      setIsLoading((prev) => ({ ...prev, cart: false }));
       console.log(err);
     }
   };
 
-  const changeQuantity = async (productId, type) => {
+  const changeQuantity = async (productId, type, setIsLoading) => {
     try {
-      setIsLoading(true);
+      setIsLoading((prev) => ({ ...prev, cart: true }));
       const response = await axios.post(
         `/api/user/cart/${productId}`,
         {
@@ -73,17 +74,16 @@ function CartProvider({ children }) {
       );
       if (response.status === 200) {
         setCartItems(response.data.cart);
-        setIsLoading(false);
+        setIsLoading((prev) => ({ ...prev, cart: false }));
       }
     } catch (err) {
-      setIsLoading(false);
+      setIsLoading((prev) => ({ ...prev, cart: false }));
       console.log(err);
     }
   };
 
   const removeFromCart = async (productId) => {
     try {
-      setIsLoading(true);
       const response = await axios.delete(`/api/user/cart/${productId}`, {
         headers: {
           authorization: token,
@@ -91,14 +91,11 @@ function CartProvider({ children }) {
       });
       if (response.status === 200) {
         setCartItems(response.data.cart);
-        setIsLoading(false);
       }
     } catch (err) {
-      setIsLoading(false);
       console.log(err);
     }
   };
-
   return (
     <cartContext.Provider
       value={{
@@ -106,7 +103,6 @@ function CartProvider({ children }) {
         addToCart,
         changeQuantity,
         removeFromCart,
-        isLoading,
       }}
     >
       {children}
