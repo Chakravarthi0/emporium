@@ -8,7 +8,7 @@
   font-size: 1.6rem;
 }
 
-a{
+a {
   text-decoration: none;
 }
 
@@ -41,6 +41,11 @@ a{
   background-color: var(--white);
   border: none;
 }
+
+.loader-img {
+  height: 1.8rem;
+}
+
 @media screen and (max-width: 800px) {
   .page-title {
     font-size: 3rem;
