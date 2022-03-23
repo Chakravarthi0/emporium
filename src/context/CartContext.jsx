@@ -28,6 +28,9 @@ function CartProvider({ children }) {
           console.log(err);
         }
       }
+      else{
+        setCartItems([])
+      }
     })();
   }, [token]);
 

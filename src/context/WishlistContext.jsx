@@ -28,6 +28,9 @@ function WishlistProvider({ children }) {
           console.log(err);
         }
       }
+      else{
+        setWishlistItems([])
+      }
     })();
   }, [token]);
 
