@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { useAuth, useCart } from "../../context/index";
+import { useAuth, useCart, useWishlist } from "../../context/index";
 import "./navbar.css";
 function NavBar() {
   const {
@@ -8,7 +8,9 @@ function NavBar() {
     authState: { token },
   } = useAuth();
 
-  const { cartItems, no } = useCart();
+  const { cartItems } = useCart();
+
+  const { wishlistItems } = useWishlist();
 
   useEffect(() => {
     const changeWidth = () => {
@@ -56,7 +58,11 @@ function NavBar() {
             <li>
               <Link className="nav-icon-container black" to={"/wishlist"}>
                 <i className="fas fa-heart badge-container nav-icon">
-                  <span className="badge badge-lg nav-icon">6</span>
+                  {wishlistItems.length > 0 && (
+                    <span className="badge badge-lg nav-icon">
+                      {wishlistItems.length}
+                    </span>
+                  )}
                 </i>
               </Link>
             </li>

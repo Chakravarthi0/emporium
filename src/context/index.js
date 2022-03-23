@@ -7,3 +7,5 @@ export { useFilter, FilterProvider } from "./FilterContext";
 export { useAuth, AuthProvider } from "./authContext";
 
 export { useCart, CartProvider } from "./CartContext";
+
+export { useWishlist, WishlistProvider } from "./WishlistContext";
