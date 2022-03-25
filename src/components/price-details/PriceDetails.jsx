@@ -45,10 +45,12 @@ function PriceDetails() {
           <p>₹{Intl.NumberFormat("en-IN").format(result.totalItemsPrice)}</p>
         </li>
 
-        <li className="price-details-list">
-          <p>Discount</p>
-          <p>-₹{Intl.NumberFormat("en-IN").format(result.totalDiscount)}</p>
-        </li>
+        {(result.totalDiscount > 0) && (
+          <li className="price-details-list">
+            <p>Discount</p>
+            <p>-₹{Intl.NumberFormat("en-IN").format(result.totalDiscount)}</p>
+          </li>
+        )}
 
         <li className="price-details-list">
           <p>Delivery charges</p>
@@ -61,11 +63,16 @@ function PriceDetails() {
         </li>
         <hr />
       </ul>
-      <p className="savings">
-        You will save ₹{Intl.NumberFormat("en-IN").format(result.totalDiscount)}{" "}
-        on this order
-      </p>
-      <button className="btn btn-success btn-wide">Place order</button>
+      {(result.totalDiscount > 0) && (
+        <p className="savings">
+          You will save ₹
+          {Intl.NumberFormat("en-IN").format(result.totalDiscount)} on this
+          order
+        </p>
+      )}
+      <button className="btn btn-success btn-wide btn-place-order">
+        Place order
+      </button>
     </div>
   );
 }

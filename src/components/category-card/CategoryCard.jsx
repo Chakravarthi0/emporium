@@ -1,8 +1,19 @@
 import React from "react";
-import {Link} from "react-router-dom";
+import { useFilter } from "../../context/index";
+import {actionTypes} from "../../reducers/index"
+import {useNavigate} from "react-router-dom";
 import "./category-card.css";
 
-function CategoryCard({ imgSrc, title, linkTO }) {
+function CategoryCard({ imgSrc, title, categoryName }) {
+
+  const { filterDispatch } = useFilter();
+  const navigate = useNavigate();
+
+  const chooseCategory = () => {
+    filterDispatch({type: actionTypes.SET_SINGLE_CATEGORY, payload: categoryName});
+    navigate("/products");
+  }
+
   return (
     <div className="card product-card">
       <div className="product-img-container">
@@ -13,9 +24,7 @@ function CategoryCard({ imgSrc, title, linkTO }) {
       </div>
       <p className="card-title">{title}</p>
       <div className="card-actions">
-        <Link className="btn-wide" to={linkTO}>
-        <button className="btn btn-primary btn-wide">Browse</button>
-        </Link>
+        <button className="btn btn-primary btn-wide" onClick={chooseCategory}>Browse</button>
       </div>
     </div>
   );
