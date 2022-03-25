@@ -68,7 +68,7 @@ function Filter({displayFilters, toggleDisplayFilters}) {
                 filterDispatch({ type: actionTypes.CHANGE_RATING, payload: 4 })
               }
             />
-            4 stars & above
+            <p className="category-name">4 stars & above</p>
           </label>
           <label className="filter-label">
             <input
@@ -79,7 +79,7 @@ function Filter({displayFilters, toggleDisplayFilters}) {
                 filterDispatch({ type: actionTypes.CHANGE_RATING, payload: 3 })
               }
             />
-            3 stars & above
+            <p className="category-name">3 stars & above</p>
           </label>
           <label className="filter-label">
             <input
@@ -90,7 +90,7 @@ function Filter({displayFilters, toggleDisplayFilters}) {
                 filterDispatch({ type: actionTypes.CHANGE_RATING, payload: 2 })
               }
             />
-            2 stars & above
+            <p className="category-name">2 stars & above</p>
           </label>
           <label className="filter-label">
             <input
@@ -101,7 +101,7 @@ function Filter({displayFilters, toggleDisplayFilters}) {
                 filterDispatch({ type: actionTypes.CHANGE_RATING, payload: 1 })
               }
             />
-            1 stars & above
+            <p className="category-name">1 stars & above</p>
           </label>
         </div>
       </div>
@@ -119,7 +119,7 @@ function Filter({displayFilters, toggleDisplayFilters}) {
               }
               name="sort"
             />
-            Price - Low to High
+            <p className="category-name">Price - Low to High</p>
           </label>
           <label className="filter-label">
             <input
@@ -130,7 +130,7 @@ function Filter({displayFilters, toggleDisplayFilters}) {
               }
               name="sort"
             />
-            Price - High to Low
+            <p className="category-name">Price - High to Low</p>
           </label>
         </div>
       </div>
