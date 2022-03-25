@@ -1,7 +1,6 @@
 import { actionTypes } from "./actionTypes";
 
 const filterReducer = (state, action) => {
-  console.log("dispatch..", action)
   const {
     CHANGE_CATEGORIES,
     CLEAR_CATEGORIES,
