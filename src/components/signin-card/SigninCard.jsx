@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./signin-card.css";
 import { Link } from "react-router-dom";
-import PasswordInput from "../password-input/PasswordInput"
+import PasswordInput from "../password-input/PasswordInput";
 import { useAuth } from "../../context/index";
 
 function SigninCard() {
@@ -43,6 +43,19 @@ function SigninCard() {
     setIsSubmitted(true);
   };
 
+  const loginAsGuest = (e) => {
+    e.preventDefault();
+    setSignInInput({
+      userEmail: "johndoe@gmail.com",
+      password: 12345678,
+      rememberMe: false,
+    });
+    signIn({
+      email: "johndoe@gmail.com",
+      password: 12345678,
+    });
+  };
+
   const validateInput = (inputs) => {
     const errors = {};
     const passwordRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
@@ -74,7 +87,11 @@ function SigninCard() {
         </div>
         <div className="input-container">
           <label>Password</label>
-          <PasswordInput name={"password"} inputValue={password} handleInputChange={handleInputChange} />
+          <PasswordInput
+            name={"password"}
+            inputValue={password}
+            handleInputChange={handleInputChange}
+          />
           <p className="validation-msg danger">{formErrors.password}</p>
         </div>
         <div>
@@ -100,6 +117,13 @@ function SigninCard() {
             onClick={handleSignInSubmit}
           >
             Sign In
+          </button>
+          <button
+            className="btn btn-primary-ol sign-x-btn btn-guest-login"
+            value="submit"
+            onClick={loginAsGuest}
+          >
+            Sign in with test credentials
           </button>
         </div>
         <Link className="sin-x-link" to={"/signup"}>
