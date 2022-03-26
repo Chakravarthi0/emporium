@@ -100,8 +100,6 @@
 @media screen and (max-width: 800px) {
   .nav-links-container,
   .nav-search {
-    /* display: flex;
-    flex-direction: column; */
     display: none;
   }
   .navbar-container {

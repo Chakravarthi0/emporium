@@ -10,10 +10,6 @@ function AsideNavBar({
 }) {
   return (
     <div className="aside-navbar">
-      {/* <div className="aside-nav-search-container aside-nav-search icon">
-        <i className="fa fa-search" aria-hidden="true"></i>
-        <input className="nav-search-input" placeholder="Search" />
-      </div> */}
 
       <button
         className="btn btn-primary-ol btn-float aside-close-btn"
