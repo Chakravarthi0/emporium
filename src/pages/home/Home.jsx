@@ -1,6 +1,5 @@
 import React from "react";
 import "./home.css";
-import "../../../public/assests/hero-section/Shopping_Outline.svg";
 import {
   ProductCard,
   CategoryCard,
@@ -30,18 +29,16 @@ function HomePage() {
       <div className="hero-container">
         <img
           className="hero-illustration"
-          src="/assests/hero-section/Shopping_Outline.svg"
+          src="/assests/hero-section/devices.svg"
           alt=""
         />
         <div className="hero-description">
-          <p>Welcome to</p>
           <h1 className="store-name">Emporium</h1>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam
-            corporis nobis veniam.
+            The one stop shop for electronic devices.
           </p>
           <Link className="link" to={"/products"}>
-            <button className="btn btn-primary btn-lg">shop</button>
+            <button className="btn btn-primary btn-lg">Shop now</button>
           </Link>
         </div>
       </div>
@@ -72,7 +69,7 @@ function HomePage() {
                   key={ele._id}
                   title={ele.title}
                   imgSrc={ele.imgSrc}
-                  linkTO={ele.link}
+                  categoryName={ele.categoryName}
                 />
               );
             })}

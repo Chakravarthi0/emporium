@@ -6,6 +6,13 @@
 
 * {
   font-size: 1.6rem;
+  font-family: "Roboto", sans-serif;
+  scroll-behavior: smooth;
+}
+
+h1,h2,h3,h4,h5,h6{
+  font-family: "Oswald", sans-serif;
+  letter-spacing: 1px;
 }
 
 a {
@@ -19,9 +26,13 @@ a {
 }
 .page-title {
   font-size: 3.5rem;
-  font-weight: initial;
   margin: 2rem 0;
 }
+
+.btn{
+  font-weight: bolder;
+}
+
 .btn-primary-inv {
   background-color: var(--white);
   color: var(--primary-color);

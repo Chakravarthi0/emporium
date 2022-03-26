@@ -58,9 +58,8 @@ function WishlistProvider({ children }) {
     }
   };
 
-  const removeFromWishlist = async (productId, setIsLoading) => {
+  const removeFromWishlist = async (productId) => {
     try {
-      setIsLoading((prev) => ({ ...prev, wishlist: true }));
       const response = await axios.delete(`/api/user/wishlist/${productId}`, {
         headers: {
           authorization: token,
@@ -69,10 +68,8 @@ function WishlistProvider({ children }) {
 
       if (response.status === 200) {
         setWishlistItems(response.data.wishlist);
-        setIsLoading((prev) => ({ ...prev, wishlist: false }));
       }
     } catch (err) {
-      setIsLoading((prev) => ({ ...prev, wishlist: false }));
       console.log(err);
     }
   };

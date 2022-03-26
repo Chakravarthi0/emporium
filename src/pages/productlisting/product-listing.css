@@ -50,6 +50,7 @@
 
 .category-name {
   margin-left: 1rem;
+  display: inline;
 }
 
 /* products */
@@ -62,7 +63,7 @@
 }
 
 .product-main {
-  margin-left: 1rem;
+  margin: auto;
 }
 
 .products-container {

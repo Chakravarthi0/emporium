@@ -6,7 +6,8 @@
 }
 
 .sign-x-form {
-  width: 30rem;
+  width: 32rem;
+  max-width: 98vw;
   padding: 3rem;
   margin-top: 6rem;
   display: flex;
@@ -49,11 +50,15 @@
   width: 100%;
 }
 
+.btn-guest-login {
+  margin-top: 1.5rem;
+}
+
 .sign-x-label {
   cursor: pointer;
 }
 
-.t-and-c-container{
+.t-and-c-container {
   display: flex;
   justify-content: space-evenly;
   align-items: center;

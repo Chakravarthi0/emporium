@@ -9,6 +9,7 @@ const actionTypes = {
   CLEAR_CATEGORIES: "CLEAR_CATEGORIES",
   SIGN_IN: "SIGN_IN",
   SIGN_OUT: "SIGN_OUT",
+  SET_SINGLE_CATEGORY: "SET_SINGLE_CATEGORY"
 };
 
 export { actionTypes };
