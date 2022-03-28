@@ -1,29 +1,26 @@
-import React,{useState} from "react";
-import {useCart,
-    useAuth,
-    useWishlist,} from "../../context/index"
+import React, { useState } from "react";
+import { useCart, useAuth, useWishlist } from "../../context/index";
 import { useNavigate } from "react-router-dom";
 import "./single-product-card.css";
 
 function SingleProductCard({ product }) {
-    const [isLoading, setIsLoading] = useState({
-        cart: false,
-        wishlist: false,
-      });
-    
-      const navigate = useNavigate();
-    
-      const { cartItems, addToCart } = useCart();
-      const { wishlistItems, addToWishlist, removeFromWishlist } = useWishlist();
-      const isInWishlist = wishlistItems.find((item) => item._id === product?._id);
-      const {
-        authState: { token },
-      } = useAuth();
+  const [isLoading, setIsLoading] = useState({
+    cart: false,
+    wishlist: false,
+  });
+
+  const navigate = useNavigate();
+
+  const { cartItems, addToCart } = useCart();
+  const { wishlistItems, addToWishlist, removeFromWishlist } = useWishlist();
+  const isInWishlist = wishlistItems.find((item) => item._id === product?._id);
+  const {
+    authState: { token },
+  } = useAuth();
   return (
     <>
       {product?._id && (
-          <>
-
+        <>
           <div className="sigle-product-detail">
             <div className="single-product-img">
               <img

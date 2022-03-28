@@ -7,6 +7,7 @@ import SignupCard from "./signup-card/SignupCard";
 import LoadingError from "./loading-error/LoadingError";
 import CategoryCard from "./category-card/CategoryCard";
 import Loader from "./loader/Loader";
+import { SingleProductCard } from "./single-product-card/SingleProductCard";
 export {
   ProductCard,
   Slider,
@@ -16,5 +17,6 @@ export {
   SignupCard,
   LoadingError,
   CategoryCard,
-  Loader
+  Loader,
+  SingleProductCard
 };
