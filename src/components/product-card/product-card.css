@@ -25,6 +25,7 @@
 }
 
 .product-img {
+  cursor: pointer;
   border-top-right-radius: 1rem;
   border-top-left-radius: 1rem;
   height: 40rem;

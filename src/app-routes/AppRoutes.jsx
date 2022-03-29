@@ -10,6 +10,7 @@ import {
   SignUP,
   SignOut,
   SignIn,
+  SingleProduct
 } from "../pages/index";
 import { Routes, Route, Navigate } from "react-router-dom";
 
@@ -33,6 +34,7 @@ function AppRoutes() {
         </>
       )}
       <Route path="/products" element={<ProductListing />}></Route>
+      <Route path="/product/:productId" element={<SingleProduct />}></Route>
       <Route element={<ProtectedRoutes />}>
         <Route path="/signout" element={<SignOut />}></Route>
         <Route path="/cart" element={<Cart />}></Route>

@@ -17,7 +17,7 @@ function ProductCard({ product }) {
   } = product;
   const { cartItems, addToCart } = useCart();
   const { wishlistItems, addToWishlist, removeFromWishlist } = useWishlist();
-  const isInWishlist = wishlistItems.find((item) => item._id === _id);
+  const isInWishlist = wishlistItems.find((item) => item._id === _id);  
   const {
     authState: { token },
   } = useAuth();
@@ -35,7 +35,7 @@ function ProductCard({ product }) {
         </div>
       )}
       <div className="product-img-container">
-        <img className="product-img img-responsive" src={`../../${imgSrc}`} />
+        <img className="product-img img-responsive" onClick={() => navigate(`/product/${_id}`)} src={`../../${imgSrc}`} />
       </div>
       <p className="product-title">{title}</p>
       <p className="product-brand">{brand}</p>

@@ -1,0 +1,124 @@
+.sigle-product-detail {
+    width: 70%;
+    max-width: 100rem;
+    margin: 5rem auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    box-shadow: var(--box-shadow);
+    padding: 5rem 0;
+    border-radius: 1rem;
+  }
+  
+  .product-details {
+    margin-right: 5rem;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .single-product-title {
+    font-size: 3.5rem;
+    margin-top: 0;
+  }
+  
+  .single-product-brand {
+    font-size: 2.7rem;
+  }
+  
+  .single-new-price {
+    font-size: 2.2rem;
+  }
+  
+  .single-old-price {
+    font-size: 1.8rem;
+  }
+  
+  .product-details-btns {
+    display: flex;
+    gap: 2rem;
+    margin: 2rem 0;
+  }
+  
+  .description-head {
+    font-size: 3rem;
+    margin-top: 2rem;
+  }
+  
+  .description-content {
+    font-size: 2rem;
+    margin-top: 1rem;
+    width: 90%;
+  }
+  
+  .rating-container > p {
+    margin: 1rem 0;
+  }
+  
+  .rated {
+    font-size: 2.5rem;
+  }
+  
+  .single-product-img {
+    max-height: 45rem;
+    max-width: 45rem;
+    min-width: 30rem;
+    justify-self: center;
+    margin-left: 5rem;
+  }
+  
+  @media screen and (max-width: 1300px) {
+    .sigle-product-detail {
+      width: 85%;
+    }
+  }
+  
+  @media screen and (max-width: 1050px) {
+    .sigle-product-detail {
+      width: 90%;
+    }
+  }
+  
+  @media screen and (max-width: 950px) {
+    .sigle-product-detail {
+      grid-template-columns: 1fr;
+    }
+    .product-details {
+      margin: auto 5rem;
+    }
+    .single-product-img {
+      margin: auto 5rem;
+    }
+    .description-head {
+      margin-top: 1rem;
+    }
+  }
+  
+  @media screen and (max-width: 600px) {
+    .sigle-product-detail {
+      width: 90%;
+    }
+    .product-title {
+      font-size: 3rem;
+    }
+    .product-brand {
+      font-size: 2.4rem;
+    }
+    .description-head {
+      margin-top: 1rem;
+      font-size: 2.7rem;
+    }
+    .single-product-img {
+      min-width: 25rem;
+    }
+  }
+  
+  @media screen and (max-width: 450px) {
+    .description-head {
+      margin-top: 1rem;
+    }
+    .single-product-img,
+    .product-details {
+      margin: auto 2rem;
+    }
+  }
+  
