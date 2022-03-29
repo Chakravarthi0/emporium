@@ -86,13 +86,15 @@ function SingleProductCard({ product }) {
                     Add to cart
                   </button>
                 )}
-                {!token ? (<button
+                {!token ? (
+                  <button
                     disabled={isLoading.wishlist}
                     className="btn btn-primary-ol"
                     onClick={() => navigate("/signin")}
                   >
                     Add to wishlist
-                  </button>) :  (isInWishlist ? (
+                  </button>
+                ) : isInWishlist ? (
                   <button
                     className="btn btn-primary-ol"
                     onClick={() => removeFromWishlist(product?._id)}
@@ -107,7 +109,7 @@ function SingleProductCard({ product }) {
                   >
                     Add to wishlist
                   </button>
-                ))}
+                )}
               </div>
               <div className="product-details-description">
                 <h2 className="description-head">Description</h2>
