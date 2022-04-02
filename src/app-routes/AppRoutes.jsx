@@ -1,5 +1,5 @@
-import React,{useEffect} from "react";
-import {useAuth} from "../context/index"
+import React, { useEffect } from "react";
+import { useAuth } from "../context/index";
 import Mockman from "mockman-js";
 import ProtectedRoutes from "./ProtectedRoutes";
 import {
@@ -10,12 +10,12 @@ import {
   SignUP,
   SignOut,
   SignIn,
-  SingleProduct
+  SingleProduct,
+  Checkout,
 } from "../pages/index";
 import { Routes, Route, Navigate } from "react-router-dom";
 
 function AppRoutes() {
-
   const {
     authState: { token },
   } = useAuth();
@@ -39,6 +39,7 @@ function AppRoutes() {
         <Route path="/signout" element={<SignOut />}></Route>
         <Route path="/cart" element={<Cart />}></Route>
         <Route path="/wishlist" element={<WishList />}></Route>
+        <Route path="/checkout" element={<Checkout />}></Route>
       </Route>
 
       <Route path="/mockman" element={<Mockman />} />
