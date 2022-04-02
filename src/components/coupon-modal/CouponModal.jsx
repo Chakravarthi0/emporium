@@ -22,7 +22,6 @@ function CouponModal({ setIsModalOpen, total, chosenCoupon, setChosenCoupon }) {
               checked={chosenCoupon === "500OFF"}
               onChange={() => {
                 setChosenCoupon("500OFF");
-                setIsModalOpen(false);
               }}
               disabled={total < 5000}
             />
@@ -39,7 +38,6 @@ function CouponModal({ setIsModalOpen, total, chosenCoupon, setChosenCoupon }) {
               checked={chosenCoupon === "10%OFF"}
               onChange={() => {
                 setChosenCoupon("10%OFF");
-                setIsModalOpen(false);
               }}
               disabled={total < 10000}
             />

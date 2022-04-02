@@ -14,7 +14,7 @@ function Checkout() {
         </div>
         <div>
           <AddressCard />
-          <PriceDetails isFromCheckout={true} />
+          { (cartItems.length>0) && <PriceDetails isFromCheckout={true} />}
         </div>
       </div>
     </>

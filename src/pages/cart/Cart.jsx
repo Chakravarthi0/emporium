@@ -14,7 +14,7 @@ function Cart() {
             return <CartCard key={product._id} product={product} />;
           })}
         </div>
-        <PriceDetails />
+        { (cartItems.length > 0) && <PriceDetails />}
       </div>
     </>
   );

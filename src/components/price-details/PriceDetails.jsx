@@ -120,7 +120,7 @@ function PriceDetails({ isFromCheckout }) {
         className="btn btn-success btn-wide btn-place-order"
         onClick={() => { !isFromCheckout && navigate("/checkout")}}
       >
-        Make Payment
+        {isFromCheckout ? "Make Payment" : "Place order"}
       </button>
     </div>
   );
