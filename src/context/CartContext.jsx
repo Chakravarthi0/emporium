@@ -1,5 +1,6 @@
 import React, { useState, useEffect, createContext, useContext } from "react";
 import { useAuth } from "./index";
+import toast from "react-hot-toast";
 import axios from "axios";
 
 const cartContext = createContext();
@@ -27,9 +28,8 @@ function CartProvider({ children }) {
         } catch (err) {
           console.log(err);
         }
-      }
-      else{
-        setCartItems([])
+      } else {
+        setCartItems([]);
       }
     })();
   }, [token]);
@@ -52,6 +52,7 @@ function CartProvider({ children }) {
       if (response.status === 201) {
         setCartItems(response.data.cart);
         setIsLoading((prev) => ({ ...prev, cart: false }));
+        toast.success("Item added to cart");
       }
     } catch (err) {
       setIsLoading((prev) => ({ ...prev, cart: false }));
@@ -94,6 +95,7 @@ function CartProvider({ children }) {
       });
       if (response.status === 200) {
         setCartItems(response.data.cart);
+        toast.success("Item removed from cart");
       }
     } catch (err) {
       console.log(err);
