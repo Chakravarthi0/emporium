@@ -1,23 +1,24 @@
 import React from "react";
-import { CartCard, PriceDetails } from "../../components";
+import { CartCard, PriceDetails, AddressCard } from "../../components";
 import { useCart } from "../../context/index";
-import "./cart.css";
-
-function Cart() {
+function Checkout() {
   const { cartItems } = useCart();
   return (
     <>
-      <h1 className="text-center page-title">My Cart ({cartItems.length})</h1>
+      <h1 className="text-center page-title">Checkout ({cartItems.length})</h1>
       <div className="cart-container">
         <div className="cart-products">
           {cartItems.map((product) => {
             return <CartCard key={product._id} product={product} />;
           })}
         </div>
-        { (cartItems.length > 0) && <PriceDetails />}
+        <div>
+          <AddressCard />
+          { (cartItems.length>0) && <PriceDetails isFromCheckout={true} />}
+        </div>
       </div>
     </>
   );
 }
 
-export default Cart;
+export default Checkout;
