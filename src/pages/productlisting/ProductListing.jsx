@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useProducts, useFilter } from "../../context";
-import { ProductCard, Loader, LoadingError } from "../../components";
+import { ProductCard, Loader, LoadingError, SearchBar } from "../../components";
 import Filter from "./Filter";
 import "./product-listing.css";
 
@@ -38,6 +38,16 @@ function ProductListing() {
     } else if (filterState.sortBy === "descending") {
       filteredProducts = filteredProducts.sort((a, b) => b.price - a.price);
     }
+
+    if (filterState.searchKey !== "") {
+      filteredProducts = filteredProducts.filter(
+        (ele) =>
+          ele.title
+            .toLowerCase()
+            .includes(filterState.searchKey.toLowerCase()) ||
+          ele.brand.toLowerCase().includes(filterState.searchKey.toLowerCase())
+      );
+    }
   };
   filterProducts();
 
@@ -59,7 +69,6 @@ function ProductListing() {
           <LoadingError />
         </>
       )}
-
       {products.length > 0 && (
         <div className="product-page-body ">
           <Filter
@@ -68,12 +77,13 @@ function ProductListing() {
           />
           <div
             className={
-              "product-main " +
+              (filteredProducts.length > 1 ? "product-main " : "") +
               (filteredProducts.length < 1 ? "product-main-wide" : "")
             }
           >
             {/* displayed if products are fetched successfully, at the center of products-main container */}
             <h1 className="text-center page-title ">Products</h1>
+            <SearchBar fromProductsPage={true} />
             <div className="product-top">
               <div className="filter-icon-container">
                 <button
