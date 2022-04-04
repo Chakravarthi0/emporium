@@ -11,6 +11,7 @@ const filterReducer = (state, action) => {
     SORT_DESCENDING,
     CLEAR_FILTERS,
     TOGGLE_INSTOCK,
+    SET_SEARCH,
   } = actionTypes;
   switch (action.type) {
     case CHANGE_CATEGORIES:
@@ -68,12 +69,16 @@ const filterReducer = (state, action) => {
         rating: 1,
         includeOutOfStock: false,
         maxPrice: 50000,
+        searchKey: "",
       };
     case TOGGLE_INSTOCK:
       return {
         ...state,
         includeOutOfStock: !state.includeOutOfStock,
       };
+
+    case SET_SEARCH:
+      return { ...state, searchKey: action.payload };
 
     default:
       return state;

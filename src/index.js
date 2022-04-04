@@ -12,12 +12,14 @@ import {
   CartProvider,
   WishlistProvider,
 } from "./context/index";
+import { Toaster } from "react-hot-toast";
 // Call make Server
 makeServer();
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
+      <Toaster position="top-center" />
       <AuthProvider>
         <WishlistProvider>
           <CartProvider>

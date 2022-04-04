@@ -13,6 +13,7 @@ function FilterProvider({children}) {
       rating: 1,
       includeOutOfStock: false,
       maxPrice:50000,
+      searchKey: ""
     })
 
 

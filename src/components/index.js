@@ -9,6 +9,7 @@ import CategoryCard from "./category-card/CategoryCard";
 import Loader from "./loader/Loader";
 import CouponModal from "./coupon-modal/CouponModal";
 import { SingleProductCard } from "./single-product-card/SingleProductCard";
+import { SearchBar } from "./search-bar/SearchBar";
 import AddressCard from "./address-card/AddressCard";
 export {
   ProductCard,
@@ -23,4 +24,5 @@ export {
   SingleProductCard,
   CouponModal,
   AddressCard,
+  SearchBar,
 };

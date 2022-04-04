@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useCart, useWishlist } from "../../context/index";
+import toast from "react-hot-toast";
 import "./cart-card.css";
 
 function CartCard({ product }) {
@@ -31,6 +32,7 @@ function CartCard({ product }) {
   const moveToCart = () => {
     addToWishlist(product, setIsLoading);
     removeFromCart(_id);
+    toast.success("Item added to wishlist");
   };
 
   return (

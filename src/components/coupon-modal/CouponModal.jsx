@@ -1,4 +1,5 @@
 import React from "react";
+import toast from "react-hot-toast";
 import "./coupon-modal.css";
 
 function CouponModal({ setIsModalOpen, total, chosenCoupon, setChosenCoupon }) {
@@ -22,6 +23,7 @@ function CouponModal({ setIsModalOpen, total, chosenCoupon, setChosenCoupon }) {
               checked={chosenCoupon === "500OFF"}
               onChange={() => {
                 setChosenCoupon("500OFF");
+                toast.success("Applied coupon: 500OFF");
               }}
               disabled={total < 5000}
             />
@@ -38,6 +40,7 @@ function CouponModal({ setIsModalOpen, total, chosenCoupon, setChosenCoupon }) {
               checked={chosenCoupon === "10%OFF"}
               onChange={() => {
                 setChosenCoupon("10%OFF");
+                toast.success("Applied coupon: 10%OFF");
               }}
               disabled={total < 10000}
             />

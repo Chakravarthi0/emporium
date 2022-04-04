@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { useAuth, useCart, useWishlist } from "../../context/index";
 import AsideNavBar from "./AsideNavBar.jsx";
+import { SearchBar } from "../../components";
 import "./navbar.css";
 function NavBar() {
   const { pathname } = useLocation();
@@ -42,10 +43,7 @@ function NavBar() {
         />
       )}
 
-      <div className="nav-search-container nav-search icon">
-        <i className="fa fa-search" aria-hidden="true"></i>
-        <input className="nav-search-input" placeholder="Search" />
-      </div>
+      {pathname === "/products" && <SearchBar />}
 
       <nav>
         <ul className={"list nav-links-container"}>
@@ -79,7 +77,6 @@ function NavBar() {
 
           {token === "" ? (
             <li>
-              {/* <Link className="link btn btn-primary-inv" to={"/signin"}> */}
               <Link className="link white nav-link" to={"/signin"}>
                 Sign In
               </Link>

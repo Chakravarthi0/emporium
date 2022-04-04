@@ -1,8 +1,10 @@
-import React, { createContext, useContext, useEffect, useReducer } from "react";
+import React, { createContext, useContext, useReducer } from "react";
 import { authReducer } from "../reducers/index";
 import { useNavigate } from "react-router-dom";
 import { actionTypes } from "../reducers/index";
+import toast from "react-hot-toast";
 import axios from "axios";
+
 const authContext = createContext({});
 
 const useAuth = () => useContext(authContext);
@@ -21,9 +23,12 @@ function AuthProvider({ children }) {
 
       if (res.status === 201) {
         navigate("/signin");
+
+        toast.success("Account created successfully");
       }
     } catch (err) {
       console.log(err);
+      toast.error(err.response.data.error[0]);
     }
   };
 
@@ -36,9 +41,15 @@ function AuthProvider({ children }) {
         localStorage.setItem("token", encodedToken);
         authDispatch({ type: SIGN_IN, payload: { token: encodedToken } });
         navigate("/");
+        toast.success("Signed in");
+      } else {
+        toast.error(
+          "Something went wrong, check the credentials and try again"
+        );
       }
     } catch (err) {
       console.log(err);
+      toast.error(err.response.data.error[0]);
     }
   };
 
@@ -46,6 +57,7 @@ function AuthProvider({ children }) {
     localStorage.removeItem("token");
     authDispatch({ type: SIGN_OUT });
     navigate("/");
+    toast.success("Signed out");
   };
 
   return (
