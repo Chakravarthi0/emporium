@@ -4,7 +4,6 @@ import { actionTypes } from "../../reducers/index";
 import "./search-bar.css";
 
 function SearchBar({ fromProductsPage }) {
-  console.log(useFilter());
   const {
     filterState: { searchKey },
     filterDispatch,
