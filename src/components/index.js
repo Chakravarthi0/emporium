@@ -11,6 +11,7 @@ import CouponModal from "./coupon-modal/CouponModal";
 import { SingleProductCard } from "./single-product-card/SingleProductCard";
 import { SearchBar } from "./search-bar/SearchBar";
 import AddressCard from "./address-card/AddressCard";
+import OrderSummaryCard from "./order-summary-card/OrderSummaryCard";
 export {
   ProductCard,
   Slider,
@@ -25,4 +26,5 @@ export {
   CouponModal,
   AddressCard,
   SearchBar,
+  OrderSummaryCard
 };

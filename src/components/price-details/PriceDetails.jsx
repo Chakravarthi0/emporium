@@ -81,7 +81,6 @@ function PriceDetails({ isFromCheckout }) {
       toast.error("Something went wrong.");
       return;
     }
-    console.log(result);
     const options = {
       key: "rzp_test_z4uZhjkU97C8G3",
       amount: result.total * 100,

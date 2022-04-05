@@ -6,7 +6,6 @@ const ordersReducer = (state, action) => {
   const { type, payload } = action;
   switch (type) {
     case ADD_TO_ORDERS:
-      console.log(payload);
       return {
         orders: [...state.orders, ...payload.newOrders],
         latestOrder: {
