@@ -12,6 +12,8 @@ import {
   SignIn,
   SingleProduct,
   Checkout,
+  Orders,
+  OrderSummary,
 } from "../pages/index";
 import { Routes, Route, Navigate } from "react-router-dom";
 
@@ -40,6 +42,8 @@ function AppRoutes() {
         <Route path="/cart" element={<Cart />}></Route>
         <Route path="/wishlist" element={<WishList />}></Route>
         <Route path="/checkout" element={<Checkout />}></Route>
+        <Route path="/orders" element={<Orders />}></Route>
+        <Route path="/order-summary" element={<OrderSummary />}></Route>
       </Route>
 
       <Route path="/mockman" element={<Mockman />} />

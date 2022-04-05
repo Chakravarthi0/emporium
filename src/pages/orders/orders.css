@@ -1,0 +1,14 @@
+.order-summary-container {
+  display: grid;
+  justify-items: center;
+  grid-gap: 3rem 5rem;
+  grid-template-columns: repeat(auto-fill, minmax(45rem, 1fr));
+  margin: 0 4rem 3rem;
+}
+
+@media screen and (max-width: 600px) {
+  .order-summary-container {
+    grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
+    margin: 0 1rem 3rem;
+  }
+}
