@@ -1,0 +1,11 @@
+@media screen and (max-width: 850px) {
+  .checkout-details-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .checkout-details {
+    min-width: 80%;
+  }
+}

@@ -11,10 +11,12 @@ function Cart() {
       <div className="cart-container">
         <div className="cart-products">
           {cartItems.map((product) => {
-            return <CartCard key={product._id} product={product} />;
+            return (
+              <CartCard key={product._id} product={product} isFromCart={true} />
+            );
           })}
         </div>
-        { (cartItems.length > 0) && <PriceDetails />}
+        {cartItems.length > 0 && <PriceDetails />}
       </div>
     </>
   );

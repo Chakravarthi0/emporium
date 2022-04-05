@@ -3,7 +3,7 @@ import { useCart, useWishlist } from "../../context/index";
 import toast from "react-hot-toast";
 import "./cart-card.css";
 
-function CartCard({ product }) {
+function CartCard({ product, isFromCart }) {
   const {
     title,
     brand,
@@ -40,14 +40,18 @@ function CartCard({ product }) {
       <div className="cart-product-img">
         <img className="img-responsive cart-img" src={`../../${imgSrc}`} />
       </div>
-      <div className="product-details">
+      <div
+        className={
+          "product-details " + (!isFromCart ? "justify-center" : "")
+        }
+      >
         <p className="product-title">{title}</p>
         <p className="product-brand">{brand}</p>
         <div className="product-price">
           <span className="new-price">
             ₹{Intl.NumberFormat("en-IN").format(newPrice)}
           </span>
-          {oldPrice && (
+          {(isFromCart && oldPrice) && (
             <span>
               <span>&nbsp;&nbsp;</span>
               <strike className="old-price">
@@ -56,52 +60,67 @@ function CartCard({ product }) {
             </span>
           )}
         </div>
-        <div className="quantity">
-          quantity:
-          <button
-            disabled={isLoading.cart || quantity < 2}
-            className={
-              "quantity-dec .bg-primary " + (quantity < 2 ? "no-cursor" : "")
-            }
-            onClick={() => changeQuantity(_id, "decrement", setIsLoading)}
-          >
-            −
-          </button>
-          {quantity}
-          <button
-            disabled={isLoading.cart}
-            className="quantity-inc"
-            onClick={() => changeQuantity(_id, "increment", setIsLoading)}
-          >
-            +
-          </button>
-        </div>
-        <button
-          className="btn btn-primary btn-wide"
-          disabled={isLoading.wishlist}
-          onClick={
-            !isInWishlist
-              ? () => {
-                  moveToCart();
+        {isFromCart && (
+          <>
+            <div className="quantity">
+              quantity:
+              <button
+                disabled={isLoading.cart || quantity < 2}
+                className={
+                  "quantity-dec .bg-primary " +
+                  (quantity < 2 ? "no-cursor" : "")
                 }
-              : () => {
-                  removeFromCart(_id, setIsLoading);
-                }
-          }
-        >
-          {isLoading.wishlist ? (
-            <img className="loader-img" src="/assests/spinner.svg"></img>
-          ) : (
-            "Move to wishlist"
+                onClick={() => changeQuantity(_id, "decrement", setIsLoading)}
+              >
+                −
+              </button>
+              {quantity}
+              <button
+                disabled={isLoading.cart}
+                className="quantity-inc"
+                onClick={() => changeQuantity(_id, "increment", setIsLoading)}
+              >
+                +
+              </button>
+            </div>
+            <button
+              className="btn btn-primary btn-wide"
+              disabled={isLoading.wishlist}
+              onClick={
+                !isInWishlist
+                  ? () => {
+                      moveToCart();
+                    }
+                  : () => {
+                      removeFromCart(_id, setIsLoading);
+                    }
+              }
+            >
+              {isLoading.wishlist ? (
+                <img className="loader-img" src="/assests/spinner.svg"></img>
+              ) : (
+                "Move to wishlist"
+              )}
+            </button>
+            <button
+              disabled={isCartLoading}
+              className="btn btn-danger btn-wide"
+              onClick={() => removeFromCart(_id)}
+            >
+              Remove from cart
+            </button>
+          </>
+        )}
+
+        {!isFromCart && (
+          <>
+          <div className="quantity">{`Quantity: ${quantity}`}</div>
+          <div>Status: Ordered</div>
+          {product.orderedAt && (
+            <div>Ordered on: {product.orderedAt}</div>
           )}
-        </button>
-        <button
-          disabled={isCartLoading}
-          className="btn btn-danger btn-wide"
-          onClick={() => removeFromCart(_id)}
-        >
-          Remove from cart
-        </button>
+          </>
+        )}
       </div>
     </div>
   );
