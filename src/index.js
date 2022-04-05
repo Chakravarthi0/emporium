@@ -11,6 +11,7 @@ import {
   FilterProvider,
   CartProvider,
   WishlistProvider,
+  OrdersProvider,
 } from "./context/index";
 import { Toaster } from "react-hot-toast";
 // Call make Server
@@ -21,17 +22,19 @@ ReactDOM.render(
     <Router>
       <Toaster position="top-center" />
       <AuthProvider>
-        <WishlistProvider>
-          <CartProvider>
-            <ProductsProvider>
-              <CategoriesProvider>
-                <FilterProvider>
-                  <App />
-                </FilterProvider>
-              </CategoriesProvider>
-            </ProductsProvider>
-          </CartProvider>
-        </WishlistProvider>
+        <ProductsProvider>
+          <OrdersProvider>
+            <WishlistProvider>
+              <CartProvider>
+                <CategoriesProvider>
+                  <FilterProvider>
+                    <App />
+                  </FilterProvider>
+                </CategoriesProvider>
+              </CartProvider>
+            </WishlistProvider>
+          </OrdersProvider>
+        </ProductsProvider>
       </AuthProvider>
     </Router>
   </React.StrictMode>,
