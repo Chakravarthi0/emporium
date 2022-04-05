@@ -53,6 +53,14 @@ function NavBar() {
             </Link>
           </li>
 
+          {token && (
+            <li>
+              <Link className="link white nav-link" to={"/orders"}>
+                My orders
+              </Link>
+            </li>
+          )}
+
           <li>
             <Link className="nav-icon-container black" to={"/wishlist"}>
               <i className="fas fa-heart badge-container nav-icon">
