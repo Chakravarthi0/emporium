@@ -15,6 +15,7 @@ export const users = [
     password: "adarshbalika",
     createdAt: formatDate(),
     updatedAt: formatDate(),
+    address: [],
   },
   {
     _id: uuid(),
@@ -24,6 +25,7 @@ export const users = [
     password: "a",
     createdAt: formatDate(),
     updatedAt: formatDate(),
+    address: [],
   },
   {
     _id: uuid(),
@@ -33,5 +35,6 @@ export const users = [
     password: 12345678,
     createdAt: formatDate(),
     updatedAt: formatDate(),
+    address: [],
   },
 ];
