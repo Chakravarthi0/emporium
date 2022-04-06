@@ -10,13 +10,22 @@
   scroll-behavior: smooth;
 }
 
-h1,h2,h3,h4,h5,h6{
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: "Oswald", sans-serif;
   letter-spacing: 1px;
 }
 
 a {
   text-decoration: none;
+}
+
+.justify-center {
+  justify-content: center;
 }
 
 .App {
@@ -29,7 +38,7 @@ a {
   margin: 2rem 0;
 }
 
-.btn{
+.btn {
   font-weight: bolder;
 }
 
@@ -55,6 +64,14 @@ a {
 
 .loader-img {
   height: 1.8rem;
+}
+
+.mt-2 {
+  margin-top: 2rem;
+}
+
+.mb-2 {
+  margin-bottom: 2rem;
 }
 
 @media screen and (max-width: 800px) {

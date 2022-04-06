@@ -10,7 +10,6 @@ function AsideNavBar({
 }) {
   return (
     <div className="aside-navbar">
-
       <button
         className="btn btn-primary-ol btn-float aside-close-btn"
         onClick={() => setIsNavOpen(false)}
@@ -28,6 +27,14 @@ function AsideNavBar({
               Shop Now
             </Link>
           </li>
+
+          {token && (
+            <li>
+              <Link className="link nav-link" to={"/orders"}>
+                My orders
+              </Link>
+            </li>
+          )}
 
           {token === "" ? (
             <li>

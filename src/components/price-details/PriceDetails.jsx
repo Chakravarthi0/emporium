@@ -1,13 +1,16 @@
 import React, { useState } from "react";
-import { useCart } from "../../context/index";
+import { useCart, useOrders } from "../../context/index";
 import { useNavigate } from "react-router-dom";
 import { CouponModal } from "../index";
+import toast from "react-hot-toast";
+import dayjs from "dayjs";
 import "./price-details.css";
 
 function PriceDetails({ isFromCheckout }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [chosenCoupon, setChosenCoupon] = useState("");
-  const { cartItems } = useCart();
+  const { cartItems, clearCart } = useCart();
+  const { addToOrders } = useOrders();
   const navigate = useNavigate();
 
   const priceReducer = (acc, curr) => {
@@ -16,7 +19,9 @@ function PriceDetails({ isFromCheckout }) {
       : 0;
     return {
       totalItems: acc.totalItems + curr.qty,
-      totalItemsPrice: acc.totalItemsPrice + curr.price * curr.qty,
+      totalItemsPrice:
+        acc.totalItemsPrice +
+        (curr.oldPrice ? curr.oldPrice : curr.price) * curr.qty,
       totalDiscount: acc.totalDiscount + discount,
     };
   };
@@ -30,9 +35,9 @@ function PriceDetails({ isFromCheckout }) {
     let couponDiscount = 0;
 
     if (chosenCoupon) {
-      if (chosenCoupon === "500OFF" && result.totalItemsPrice >=5000) {
+      if (chosenCoupon === "500OFF" && result.totalItemsPrice >= 5000) {
         couponDiscount = 500;
-      } else if (chosenCoupon === "10%OFF" && result.totalItemsPrice >=10000) {
+      } else if (chosenCoupon === "10%OFF" && result.totalItemsPrice >= 10000) {
         couponDiscount = result.totalItemsPrice * (1 / 10);
       }
     }
@@ -42,13 +47,65 @@ function PriceDetails({ isFromCheckout }) {
       couponDiscount,
       deliveryCharge: cartItems.length > 0 ? 100 : 0,
       total:
-        result.totalItemsPrice +
+        result.totalItemsPrice -
+        result.totalDiscount +
         (cartItems.length > 0 ? 100 : 0) -
         couponDiscount,
     };
   };
 
   let result = calculatePrice();
+
+  const loadScript = async (url) => {
+    return new Promise((resolve) => {
+      const script = document.createElement("script");
+      script.src = url;
+
+      script.onload = () => {
+        resolve(true);
+      };
+
+      script.onerror = () => {
+        resolve(false);
+      };
+      document.body.appendChild(script);
+    });
+  };
+
+  const displayRazorpayModal = async () => {
+    const res = await loadScript(
+      "https://checkout.razorpay.com/v1/checkout.js"
+    );
+
+    if (!res) {
+      toast.error("Something went wrong.");
+      return;
+    }
+    const options = {
+      key: "rzp_test_z4uZhjkU97C8G3",
+      amount: result.total * 100,
+      currency: "INR",
+      name: "",
+      description: "Thanks for shopping with us!",
+      image:
+        "https://github.com/Chakravarthi0/emporium/blob/dev/public/android-chrome-512x512.png?raw=true",
+      handler: function () {
+        toast.success("Order has been placed successfully");
+        let newOrders = cartItems.map((product) => ({
+          ...product,
+          orderedAt: dayjs().format("DD/MM/YYYY hh:mmA"),
+        }));
+        addToOrders(newOrders, result);
+        navigate("/order-summary");
+        clearCart();
+      },
+      theme: {
+        color: "#50a8eb",
+      },
+    };
+    const paymentObject = new window.Razorpay(options);
+    paymentObject.open();
+  };
 
   return (
     <div className="price-details">
@@ -112,13 +169,17 @@ function PriceDetails({ isFromCheckout }) {
       {result.totalDiscount > 0 && (
         <p className="savings">
           You will save ₹
-          {Intl.NumberFormat("en-IN").format(result.totalDiscount + result.couponDiscount)} on this
-          order
+          {Intl.NumberFormat("en-IN").format(
+            result.totalDiscount + result.couponDiscount
+          )}{" "}
+          on this order
         </p>
       )}
       <button
         className="btn btn-success btn-wide btn-place-order"
-        onClick={() => { !isFromCheckout && navigate("/checkout")}}
+        onClick={() => {
+          isFromCheckout ? displayRazorpayModal() : navigate("/checkout");
+        }}
       >
         {isFromCheckout ? "Make Payment" : "Place order"}
       </button>

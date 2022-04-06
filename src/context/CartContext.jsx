@@ -86,7 +86,7 @@ function CartProvider({ children }) {
     }
   };
 
-  const removeFromCart = async (productId) => {
+  const removeFromCart = async (productId, clearingCart) => {
     try {
       const response = await axios.delete(`/api/user/cart/${productId}`, {
         headers: {
@@ -95,12 +95,19 @@ function CartProvider({ children }) {
       });
       if (response.status === 200) {
         setCartItems(response.data.cart);
-        toast.success("Item removed from cart");
+        if (!clearingCart) {
+          toast.success("Item removed from cart");
+        }
       }
     } catch (err) {
       console.log(err);
     }
   };
+
+  const clearCart = () => {
+    cartItems.forEach((product) => removeFromCart(product._id, true));
+  };
+
   return (
     <cartContext.Provider
       value={{
@@ -108,6 +115,7 @@ function CartProvider({ children }) {
         addToCart,
         changeQuantity,
         removeFromCart,
+        clearCart,
       }}
     >
       {children}

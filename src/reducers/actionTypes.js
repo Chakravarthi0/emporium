@@ -11,6 +11,7 @@ const actionTypes = {
   SIGN_IN: "SIGN_IN",
   SIGN_OUT: "SIGN_OUT",
   SET_SINGLE_CATEGORY: "SET_SINGLE_CATEGORY",
+  ADD_TO_ORDERS: "ADD_TO_ORDERS",
 };
 
 export { actionTypes };

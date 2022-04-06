@@ -1,7 +1,6 @@
 .price-details {
   width: 100%;
   max-width: 60rem;
-  /* height: 40rem; */
   height: max-content;
   background-color: var(--white-pure);
   border-radius: 1rem;
@@ -43,4 +42,10 @@
 
 .btn-place-order{
   margin-top: 3rem;
+}
+
+@media screen and (max-width: 850px){
+  .price-details{
+    margin: auto;
+  }
 }
