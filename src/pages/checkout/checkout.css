@@ -1,3 +1,7 @@
+.choose-address-btn {
+  margin: 2rem 27%;
+}
+
 @media screen and (max-width: 850px) {
   .checkout-details-container {
     display: flex;

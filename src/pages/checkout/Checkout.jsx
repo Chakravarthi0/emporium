@@ -5,10 +5,15 @@ import {
   AddressCard,
   LoadingError,
 } from "../../components";
-import { useCart } from "../../context/index";
+import { useCart, useAddress } from "../../context/index";
+import { useNavigate } from "react-router-dom";
 import "./checkout.css";
 function Checkout() {
   const { cartItems } = useCart();
+  const {
+    addressState: { chosenAddress },
+  } = useAddress();
+  const navigate = useNavigate();
   return (
     <>
       <h1 className="text-center page-title">Checkout ({cartItems.length})</h1>
@@ -22,7 +27,16 @@ function Checkout() {
         <div className="checkout-details-container">
           {cartItems.length > 0 && (
             <>
-              <AddressCard />
+              {chosenAddress.name ? (
+                <AddressCard address={chosenAddress} />
+              ) : (
+                <button
+                  className="btn btn-primary choose-address-btn"
+                  onClick={() => navigate("/address")}
+                >
+                  Choose an address
+                </button>
+              )}
               <PriceDetails isFromCheckout={true} />
             </>
           )}
