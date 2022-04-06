@@ -91,9 +91,9 @@ function NavBar() {
             </li>
           ) : (
             <li>
-              <p className="link white nav-link" onClick={signOut}>
-                Sign Out
-              </p>
+              <Link className="link white nav-link" to={"/profile"}>
+                <i className="fas fa-user nav-icon"></i>
+              </Link>
             </li>
           )}
         </ul>
