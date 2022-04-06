@@ -36,6 +36,10 @@
   gap: 3rem;
 }
 
+.p-0 {
+  padding: 0;
+}
+
 @media screen and (max-width: 700px) {
   .address-details {
     margin: 3rem 2rem;

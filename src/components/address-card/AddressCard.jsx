@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import "./address-card.css";
 import toast from "react-hot-toast";
 
-function AddressCard({ address, isFromAddresses }) {
+function AddressCard({ address, isFromAddresses, isFromProfile }) {
   const [showModal, setShowModal] = useState(false);
   const { name, street, city, state, pincode, mobile, _id } = address;
   const {
@@ -15,14 +15,15 @@ function AddressCard({ address, isFromAddresses }) {
   } = useAddress();
 
   const navigate = useNavigate();
-  console.log(isFromAddresses);
 
   const isChosen = chosenAddress._id === address._id;
   return (
     <div className="checkout-details">
       <div
         className={
-          "address-details " + (!isFromAddresses ? "checkout-address" : "")
+          "address-details " +
+          (!isFromAddresses ? "checkout-address " : "") +
+          (isFromProfile ? "p-0" : "")
         }
       >
         <div>

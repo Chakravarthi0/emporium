@@ -2,11 +2,7 @@ import React from "react";
 import { ProfileCard } from "../../components";
 
 function Profile() {
-  return (
-    <div>
-      <ProfileCard />
-    </div>
-  );
+  return <ProfileCard />;
 }
 
 export { Profile };
