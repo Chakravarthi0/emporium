@@ -47,11 +47,11 @@ function NavBar() {
 
       <nav>
         <ul className={"list nav-links-container"}>
-          <li>
+         {(pathname !== "/products") &&  <li>
             <Link className="link white nav-link" to={"/products"}>
               Shop Now
             </Link>
-          </li>
+          </li>}
 
           {token && (
             <li>
