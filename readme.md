@@ -31,13 +31,13 @@ Clone the repository or download the repository as zip and unzip it in your loca
 - ### Cart
   User can:
 
-1. Change the quantity of a particular product.
-2. Remove a product from the cart
-3. Move the item from the cart to wishlist
+  1. Change the quantity of a particular product.
+  2. Remove a product from the cart
+  3. Move the item from the cart to wishlist
 
 - ### Wishlist
 
-User can add and remove items from Wishlist and add Wishlist item to cart.
+  User can add and remove items from Wishlist and add Wishlist item to cart.
 
 - ### Search
 
@@ -55,7 +55,7 @@ User can add and remove items from Wishlist and add Wishlist item to cart.
 
   User can have multiple delivery address. He/she can add, edit or delete addresses. The user can choose a delivery address from the list of all addresses.
 
-- ### Check out page:
+- ### Checkout page:
 
   This page contains price break down of the product.
 
