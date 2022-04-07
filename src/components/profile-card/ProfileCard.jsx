@@ -26,7 +26,6 @@ function ProfileCard() {
           <p className="avatar avatar-sm avatar-initial bg-success">{`${firstName[0]} ${lastName[0]}`}</p>
           <p className="user-name">{`${firstName} ${lastName}`} </p>
           <p className="mail">{email}</p>
-          <p className="mob-no">+91 9999999999</p>
 
           {chosenAddress.name ? (
             <AddressCard address={chosenAddress} isFromProfile={true} />

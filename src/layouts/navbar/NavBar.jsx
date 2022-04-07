@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { useAuth, useCart, useWishlist } from "../../context/index";
-import AsideNavBar from "./AsideNavBar.jsx";
+import {AsideNavBar} from "./AsideNavBar.jsx";
 import { SearchBar } from "../../components";
 import "./navbar.css";
 function NavBar() {
@@ -47,11 +47,11 @@ function NavBar() {
 
       <nav>
         <ul className={"list nav-links-container"}>
-          <li>
+         {(pathname !== "/products") &&  <li>
             <Link className="link white nav-link" to={"/products"}>
               Shop Now
             </Link>
-          </li>
+          </li>}
 
           {token && (
             <li>
@@ -104,4 +104,4 @@ function NavBar() {
     </header>
   );
 }
-export default NavBar;
+export {NavBar};

@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
 import { useAuth } from "./index";
+import toast from "react-hot-toast";
 import axios from "axios";
 
 const wishlistContext = createContext([]);
@@ -50,6 +51,7 @@ function WishlistProvider({ children }) {
       );
       if (response.status === 201) {
         setWishlistItems(response.data.wishlist);
+        toast.success("Item addded to wishlist");
         setIsLoading((prev) => ({ ...prev, wishlist: false }));
       }
     } catch (err) {
@@ -68,6 +70,7 @@ function WishlistProvider({ children }) {
 
       if (response.status === 200) {
         setWishlistItems(response.data.wishlist);
+        toast.success("Item removed from wishlist");
       }
     } catch (err) {
       console.log(err);

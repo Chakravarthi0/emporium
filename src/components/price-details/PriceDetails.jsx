@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useCart, useOrders, useAddress } from "../../context/index";
 import { useNavigate } from "react-router-dom";
 import { CouponModal } from "../index";
+import { calculatePrice } from "../../utils";
 import toast from "react-hot-toast";
 import dayjs from "dayjs";
 import "./price-details.css";
@@ -16,48 +17,7 @@ function PriceDetails({ isFromCheckout }) {
   const { addToOrders } = useOrders();
   const navigate = useNavigate();
 
-  const priceReducer = (acc, curr) => {
-    const discount = curr.oldPrice
-      ? (curr.oldPrice - curr.price) * curr.qty
-      : 0;
-    return {
-      totalItems: acc.totalItems + curr.qty,
-      totalItemsPrice:
-        acc.totalItemsPrice +
-        (curr.oldPrice ? curr.oldPrice : curr.price) * curr.qty,
-      totalDiscount: acc.totalDiscount + discount,
-    };
-  };
-  const calculatePrice = () => {
-    let result = cartItems.reduce(priceReducer, {
-      totalItems: 0,
-      totalItemsPrice: 0,
-      totalDiscount: 0,
-    });
-
-    let couponDiscount = 0;
-
-    if (chosenCoupon) {
-      if (chosenCoupon === "500OFF" && result.totalItemsPrice >= 5000) {
-        couponDiscount = 500;
-      } else if (chosenCoupon === "10%OFF" && result.totalItemsPrice >= 10000) {
-        couponDiscount = result.totalItemsPrice * (1 / 10);
-      }
-    }
-
-    return {
-      ...result,
-      couponDiscount,
-      deliveryCharge: cartItems.length > 0 ? 100 : 0,
-      total:
-        result.totalItemsPrice -
-        result.totalDiscount +
-        (cartItems.length > 0 ? 100 : 0) -
-        couponDiscount,
-    };
-  };
-
-  let result = calculatePrice();
+  let result = calculatePrice(chosenCoupon);
 
   const loadScript = async (url) => {
     return new Promise((resolve) => {
@@ -194,4 +154,4 @@ function PriceDetails({ isFromCheckout }) {
   );
 }
 
-export default PriceDetails;
+export {PriceDetails};

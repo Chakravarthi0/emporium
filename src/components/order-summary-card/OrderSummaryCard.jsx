@@ -44,4 +44,4 @@ function OrderSummaryCard({ products, couponDiscount, total }) {
   );
 }
 
-export default OrderSummaryCard;
+export {OrderSummaryCard};

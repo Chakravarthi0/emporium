@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useAuth } from "../../context/index";
-import PasswordInput from "../password-input/PasswordInput"
+import {PasswordInput} from "../index"
 import "../signin-card/signin-card.css";
 
 function SignupCard() {
@@ -156,4 +156,4 @@ function SignupCard() {
   );
 }
 
-export default SignupCard;
+export {SignupCard};

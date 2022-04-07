@@ -13,4 +13,4 @@ function Loader({ isFullScreen }) {
   );
 }
 
-export default Loader;
+export {Loader};

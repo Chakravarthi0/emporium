@@ -47,7 +47,7 @@ function AuthProvider({ children }) {
         localStorage.setItem("email", email);
         authDispatch({ type: SIGN_IN, payload: { token: encodedToken } });
         navigate("/");
-        toast.success("Signed in");
+        toast.success(`Hey!, ${firstName}`, { icon: "👋" });
       } else {
         toast.error(
           "Something went wrong, check the credentials and try again"

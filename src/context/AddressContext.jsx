@@ -135,12 +135,12 @@ function AddressProvider({ children }) {
       }
     } catch (err) {
       console.log(err);
+      toast.error("Something went wrong");
     } finally {
       addressDispatch({
         type: SET_LOADING,
         payload: { loadingState: false },
       });
-      toast.error("Something went wrong");
     }
   };
 

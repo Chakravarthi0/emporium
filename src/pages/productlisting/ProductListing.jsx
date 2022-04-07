@@ -106,4 +106,4 @@ function ProductListing() {
   );
 }
 
-export default ProductListing;
+export {ProductListing};

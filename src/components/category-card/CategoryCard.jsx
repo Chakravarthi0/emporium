@@ -30,4 +30,4 @@ function CategoryCard({ imgSrc, title, categoryName }) {
   );
 }
 
-export default CategoryCard;
+export {CategoryCard};

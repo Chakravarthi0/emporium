@@ -3,7 +3,7 @@ import { useAuth } from "../context/index";
 import Mockman from "mockman-js";
 import ProtectedRoutes from "./ProtectedRoutes";
 import {
-  HomePage,
+  Home,
   Cart,
   ProductListing,
   WishList,
@@ -25,7 +25,7 @@ function AppRoutes() {
   } = useAuth();
   return (
     <Routes>
-      <Route path="/" element={<HomePage />}></Route>
+      <Route path="/" element={<Home />}></Route>
       {!token ? (
         <>
           <Route path="/signup" element={<SignUP />}></Route>

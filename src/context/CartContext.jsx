@@ -79,6 +79,7 @@ function CartProvider({ children }) {
       if (response.status === 200) {
         setCartItems(response.data.cart);
         setIsLoading((prev) => ({ ...prev, cart: false }));
+        toast.success("Product quantity updated.");
       }
     } catch (err) {
       setIsLoading((prev) => ({ ...prev, cart: false }));

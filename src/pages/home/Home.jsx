@@ -9,7 +9,7 @@ import {
 import { Link } from "react-router-dom";
 import { useProducts, useCategories } from "../../context";
 
-function HomePage() {
+function Home() {
   const {
     products,
     isLoading: isProductLoading,
@@ -34,9 +34,7 @@ function HomePage() {
         />
         <div className="hero-description">
           <h1 className="store-name">Emporium</h1>
-          <p>
-            The one stop shop for electronic devices.
-          </p>
+          <p>The one stop shop for electronic devices.</p>
           <Link className="link" to={"/products"}>
             <button className="btn btn-primary btn-lg">Shop now</button>
           </Link>
@@ -98,4 +96,4 @@ function HomePage() {
   );
 }
 
-export default HomePage;
+export { Home };
