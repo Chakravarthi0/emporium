@@ -17,4 +17,4 @@ function WishList() {
   );
 }
 
-export default WishList;
+export {WishList};

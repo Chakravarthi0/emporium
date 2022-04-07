@@ -1,27 +1,11 @@
-import HomePage from "./home/Home";
-import Cart from "./cart/Cart";
-import ProductListing from "./productlisting/ProductListing";
-import WishList from "./wishList/WishList";
-import Checkout from "./checkout/Checkout";
-import { SignUP, SignOut, SignIn } from "./authentication/index";
-import { SingleProduct } from "./single-product/SingleProduct";
-import { Orders } from "./orders/Orders";
-import { OrderSummary } from "./order-summary/OrderSummary";
-import { Profile } from "./profile/Profile";
-import { Address } from "./address/Address";
-
-export {
-  HomePage,
-  Cart,
-  ProductListing,
-  WishList,
-  SignUP,
-  SignOut,
-  SignIn,
-  SingleProduct,
-  Checkout,
-  Orders,
-  OrderSummary,
-  Profile,
-  Address,
-};
+export { Home } from "./home/Home";
+export { Cart } from "./cart/Cart";
+export { ProductListing } from "./productlisting/ProductListing";
+export { WishList } from "./wishList/WishList";
+export { Checkout } from "./checkout/Checkout";
+export { SignUP, SignOut, SignIn } from "./authentication/index";
+export { SingleProduct } from "./single-product/SingleProduct";
+export { Orders } from "./orders/Orders";
+export { OrderSummary } from "./order-summary/OrderSummary";
+export { Profile } from "./profile/Profile";
+export { Address } from "./address/Address";

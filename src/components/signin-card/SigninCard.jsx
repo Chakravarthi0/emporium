@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./signin-card.css";
 import { Link } from "react-router-dom";
-import PasswordInput from "../password-input/PasswordInput";
+import {PasswordInput} from "../index";
 import { useAuth } from "../../context/index";
 
 function SigninCard() {
@@ -134,4 +134,4 @@ function SigninCard() {
   );
 }
 
-export default SigninCard;
+export {SigninCard};

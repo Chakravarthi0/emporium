@@ -73,4 +73,4 @@ function AsideNavBar({
   );
 }
 
-export default AsideNavBar;
+export {AsideNavBar};

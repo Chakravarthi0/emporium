@@ -83,4 +83,4 @@ function AddressCard({ address, isFromAddresses, isFromProfile }) {
   );
 }
 
-export default AddressCard;
+export {AddressCard};

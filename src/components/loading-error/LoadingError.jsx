@@ -9,4 +9,4 @@ function LoadingError() {
   );
 }
 
-export default LoadingError;
+export {LoadingError};

@@ -126,4 +126,4 @@ function CartCard({ product, isFromCart }) {
   );
 }
 
-export default CartCard;
+export {CartCard};

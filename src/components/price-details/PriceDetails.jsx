@@ -154,4 +154,4 @@ function PriceDetails({ isFromCheckout }) {
   );
 }
 
-export default PriceDetails;
+export {PriceDetails};

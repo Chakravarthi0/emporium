@@ -53,4 +53,4 @@ function CouponModal({ setIsModalOpen, total, chosenCoupon, setChosenCoupon }) {
   );
 }
 
-export default CouponModal;
+export {CouponModal};

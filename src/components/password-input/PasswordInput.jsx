@@ -25,4 +25,4 @@ function PasswordInput({name, handleInputChange, inputValue}) {
   );
 }
 
-export default PasswordInput;
+export {PasswordInput};

@@ -49,4 +49,4 @@ const Slider = ({ min, max }) => {
     );
   };
 
-export default Slider;
+export {Slider};
