@@ -41,6 +41,7 @@ const filterReducer = (state, action) => {
         rating: 1,
         includeOutOfStock: false,
         maxPrice: 50000,
+        searchKey: "",
       };
     case CHANGE_PRICE_RANGE:
       return {
