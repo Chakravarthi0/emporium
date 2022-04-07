@@ -14,6 +14,8 @@ import {
   Checkout,
   Orders,
   OrderSummary,
+  Profile,
+  Address
 } from "../pages/index";
 import { Routes, Route, Navigate } from "react-router-dom";
 
@@ -44,9 +46,9 @@ function AppRoutes() {
         <Route path="/checkout" element={<Checkout />}></Route>
         <Route path="/orders" element={<Orders />}></Route>
         <Route path="/order-summary" element={<OrderSummary />}></Route>
+        <Route path="/profile" element={<Profile />}></Route>
+        <Route path="/address" element={<Address />}></Route>
       </Route>
-
-      <Route path="/mockman" element={<Mockman />} />
     </Routes>
   );
 }

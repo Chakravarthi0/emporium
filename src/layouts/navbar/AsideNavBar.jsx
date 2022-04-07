@@ -19,23 +19,6 @@ function AsideNavBar({
 
       <nav>
         <ul className="list aside-nav-links-container">
-          <li>
-            <span className="nav-link">Profile</span>
-          </li>
-          <li>
-            <Link className="link nav-link" to={"/products"}>
-              Shop Now
-            </Link>
-          </li>
-
-          {token && (
-            <li>
-              <Link className="link nav-link" to={"/orders"}>
-                My orders
-              </Link>
-            </li>
-          )}
-
           {token === "" ? (
             <li>
               <Link className="link nav-link" to={"/signin"}>
@@ -44,9 +27,9 @@ function AsideNavBar({
             </li>
           ) : (
             <li>
-              <p className="link nav-link" onClick={signOut}>
-                Sign Out
-              </p>
+              <Link className="link white nav-link" to={"/profile"}>
+                <i className="fas fa-user nav-icon black"></i>
+              </Link>
             </li>
           )}
 
@@ -71,6 +54,19 @@ function AsideNavBar({
               </i>
             </Link>
           </li>
+          <li>
+            <Link className="link nav-link" to={"/products"}>
+              Shop Now
+            </Link>
+          </li>
+
+          {token && (
+            <li>
+              <Link className="link nav-link" to={"/orders"}>
+                My orders
+              </Link>
+            </li>
+          )}
         </ul>
       </nav>
     </div>

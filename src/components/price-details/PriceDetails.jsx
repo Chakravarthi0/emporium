@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useCart, useOrders } from "../../context/index";
+import { useCart, useOrders, useAddress } from "../../context/index";
 import { useNavigate } from "react-router-dom";
 import { CouponModal } from "../index";
 import toast from "react-hot-toast";
@@ -10,6 +10,9 @@ function PriceDetails({ isFromCheckout }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [chosenCoupon, setChosenCoupon] = useState("");
   const { cartItems, clearCart } = useCart();
+  const {
+    addressState: { chosenAddress },
+  } = useAddress();
   const { addToOrders } = useOrders();
   const navigate = useNavigate();
 
@@ -178,7 +181,11 @@ function PriceDetails({ isFromCheckout }) {
       <button
         className="btn btn-success btn-wide btn-place-order"
         onClick={() => {
-          isFromCheckout ? displayRazorpayModal() : navigate("/checkout");
+          isFromCheckout
+            ? chosenAddress?.name
+              ? displayRazorpayModal()
+              : toast.error("Choose an address to proceed")
+            : navigate("/checkout");
         }}
       >
         {isFromCheckout ? "Make Payment" : "Place order"}

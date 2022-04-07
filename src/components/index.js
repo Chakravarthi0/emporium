@@ -10,6 +10,8 @@ import Loader from "./loader/Loader";
 import CouponModal from "./coupon-modal/CouponModal";
 import { SingleProductCard } from "./single-product-card/SingleProductCard";
 import { SearchBar } from "./search-bar/SearchBar";
+import { ProfileCard } from "./profile-card/ProfileCard";
+import {AddressInputModal} from "./address-input-modal/AddressInputModal"
 import AddressCard from "./address-card/AddressCard";
 import OrderSummaryCard from "./order-summary-card/OrderSummaryCard";
 export {
@@ -26,5 +28,7 @@ export {
   CouponModal,
   AddressCard,
   SearchBar,
-  OrderSummaryCard
+  OrderSummaryCard,
+  ProfileCard,
+  AddressInputModal
 };

@@ -37,8 +37,14 @@ function AuthProvider({ children }) {
       const res = await axios.post("/api/auth/login", input);
 
       if (res.status === 200) {
-        const { encodedToken } = res.data;
+        const {
+          encodedToken,
+          foundUser: { firstName, lastName, email },
+        } = res.data;
         localStorage.setItem("token", encodedToken);
+        localStorage.setItem("firstName", firstName);
+        localStorage.setItem("lastName", lastName);
+        localStorage.setItem("email", email);
         authDispatch({ type: SIGN_IN, payload: { token: encodedToken } });
         navigate("/");
         toast.success("Signed in");
@@ -55,6 +61,9 @@ function AuthProvider({ children }) {
 
   const signOut = () => {
     localStorage.removeItem("token");
+    localStorage.removeItem("lastName");
+    localStorage.removeItem("firstName");
+    localStorage.removeItem("email");
     authDispatch({ type: SIGN_OUT });
     navigate("/");
     toast.success("Signed out");

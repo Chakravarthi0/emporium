@@ -7,13 +7,41 @@
   gap: 2rem;
   background-color: var(--white-pure);
   padding: 5rem;
-  margin-bottom: 3rem;
+  margin: 3rem auto;
+  position: relative;
 }
 
-.address-edit {
+.checkout-address {
+  margin: 2rem 0;
+}
+
+.address-edit-icon {
   min-width: 0;
   min-height: 0;
   width: 3rem;
   height: 3rem;
   margin-left: 1rem;
+}
+
+.address-delete-btn {
+  align-self: flex-end;
+}
+
+.address-actions {
+  align-self: flex-end;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+}
+
+.p-0 {
+  padding: 0;
+}
+
+@media screen and (max-width: 700px) {
+  .address-details {
+    margin: 3rem 2rem;
+  }
 }
