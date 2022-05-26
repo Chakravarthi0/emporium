@@ -7,7 +7,20 @@ function Address() {
   const [showModal, setShowModal] = useState(false);
   const {
     addressState: { addresses, loading },
+    addAddress,
   } = useAddress();
+
+  const addDefaultAddress = () => {
+    addAddress({
+      name: "John Doe",
+      street: "221B Baker Street",
+      city: "Marylebone",
+      state: "Westminster",
+      pincode: "123456",
+      mobile: "12345678",
+    });
+  };
+
   return (
     <div>
       {loading ? (
@@ -17,12 +30,21 @@ function Address() {
           {showModal && <AddressInputModal setShowModal={setShowModal} />}
           <div className="text-center">
             <h1 className="page-title">Address Management</h1>
-            <button
-              className="btn btn-primary"
-              onClick={() => setShowModal(true)}
-            >
-              Add new address
-            </button>
+            <div className="address-cta-container">
+              <button
+                className="btn btn-primary"
+                onClick={() => setShowModal(true)}
+              >
+                Add new address
+              </button>
+
+              <button
+                className="btn btn-primary-ol"
+                onClick={addDefaultAddress}
+              >
+                Add dummy address
+              </button>
+            </div>
           </div>
 
           <div className="addresses-container">

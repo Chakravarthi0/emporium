@@ -15,13 +15,6 @@
   max-width: 17rem;
 }
 
-.material-icons {
-  width: 3rem;
-  height: 3rem;
-  min-width: 0;
-  min-height: 0;
-}
-
 .address-edit {
   position: absolute;
   top: 3px;
