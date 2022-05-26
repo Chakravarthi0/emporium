@@ -42,7 +42,7 @@ function Address() {
                 className="btn btn-primary-ol"
                 onClick={addDefaultAddress}
               >
-                Add default address
+                Add dummy address
               </button>
             </div>
           </div>
